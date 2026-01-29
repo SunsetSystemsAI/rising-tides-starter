@@ -206,9 +206,16 @@ if (Test-Command "claude") {
     } catch {
         Print-Skip "Claude Code"
     }
+    Print-Info "Updating Claude Code to latest..."
+    try {
+        claude update 2>$null
+        Print-Success "Claude Code updated"
+    } catch {
+        Print-Info "Already up to date (or update not available)"
+    }
 } else {
     Print-Info "Installing Claude Code..."
-    npm install -g @anthropic-ai/claude-code
+    irm https://cli.anthropic.com/install.ps1 | iex
     Refresh-Path
     Print-Success "Claude Code installed"
 }

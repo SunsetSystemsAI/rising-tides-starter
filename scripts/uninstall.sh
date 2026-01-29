@@ -54,9 +54,9 @@ if command -v claude &> /dev/null; then
     read -p "  Remove Claude Code? (y/N): " remove_claude
     if [[ "$remove_claude" =~ ^[Yy]$ ]]; then
         echo "  Uninstalling Claude Code..."
-        npm uninstall -g @anthropic-ai/claude-code 2>/dev/null
+        rm -f "$HOME/.local/bin/claude" 2>/dev/null
         if command -v claude &> /dev/null; then
-            echo -e "  ${RED}Could not remove (try: sudo npm uninstall -g @anthropic-ai/claude-code)${NC}"
+            echo -e "  ${RED}Could not remove (try: rm -f ~/.local/bin/claude)${NC}"
         else
             echo -e "  ${GREEN}✓ Claude Code removed${NC}"
         fi

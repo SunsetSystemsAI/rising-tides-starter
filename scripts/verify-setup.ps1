@@ -118,7 +118,7 @@ if (Test-Command "claude") {
         Check-Pass "Claude Code installed"
     }
 } else {
-    Check-Fail "Claude Code not found" "Install: npm install -g @anthropic-ai/claude-code"
+    Check-Fail "Claude Code not found" "Install: irm https://cli.anthropic.com/install.ps1 | iex"
 }
 
 # -------------------------------------------

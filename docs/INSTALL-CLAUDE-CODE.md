@@ -4,38 +4,26 @@ This guide walks you through installing and authenticating Claude Code.
 
 ---
 
-## Prerequisites Check
-
-Before proceeding, verify you have the prerequisites installed:
-
-```bash
-node --version   # Should be 18+
-npm --version    # Should be 8+
-```
-
-If not, see the [Prerequisites Guide](PREREQUISITES.md).
-
----
-
 ## Step 1: Install Claude Code
 
-### All Platforms
+Claude Code uses a native installer. No prerequisites needed for the install itself.
+
+### Mac / Linux / WSL2
 
 ```bash
-npm install -g @anthropic-ai/claude-code
+curl -fsSL https://cli.anthropic.com/install.sh | sh
 ```
 
-This installs Claude Code globally, making the `claude` command available anywhere.
+### Windows (PowerShell)
+
+```powershell
+irm https://cli.anthropic.com/install.ps1 | iex
+```
 
 ### Verify Installation
 
 ```bash
 claude --version
-```
-
-You should see output like:
-```
-claude-code version 1.x.x
 ```
 
 ---
@@ -90,25 +78,23 @@ Press `Ctrl+C` or type `/exit` to quit.
 
 ---
 
-## Installation Options
-
-### Install Specific Version
-
-```bash
-npm install -g @anthropic-ai/claude-code@1.0.0
-```
+## Managing Claude Code
 
 ### Update to Latest
 
 ```bash
-npm update -g @anthropic-ai/claude-code
+claude update
 ```
 
 ### Uninstall
 
+**Mac/Linux/WSL2:**
 ```bash
-npm uninstall -g @anthropic-ai/claude-code
+rm -f ~/.local/bin/claude
 ```
+
+**Windows:**
+Remove the Claude binary from your local programs directory.
 
 ---
 
@@ -116,7 +102,7 @@ npm uninstall -g @anthropic-ai/claude-code
 
 | Item | Location |
 |------|----------|
-| CLI Binary | `npm prefix -g`/bin/claude |
+| CLI Binary | `~/.local/bin/claude` (Mac/Linux) |
 | Settings | `~/.claude/settings.json` |
 | Auth | `~/.claude/auth.json` |
 | Project Config | `.claude/` in your project |
@@ -131,41 +117,16 @@ npm uninstall -g @anthropic-ai/claude-code
 
 ### "command not found: claude"
 
-**Cause:** npm global bin directory not in PATH
+**Cause:** The installer directory is not in your PATH.
 
 **Fix:**
 ```bash
-# Find where npm installs global packages
-npm config get prefix
-
-# Add that path + /bin to your PATH
+# Add ~/.local/bin to your PATH
 # Mac/Linux: Add to ~/.bashrc or ~/.zshrc
-export PATH="$(npm config get prefix)/bin:$PATH"
-
-# Windows: Add to System Environment Variables
+export PATH="$HOME/.local/bin:$PATH"
 ```
 
-### "EACCES: permission denied" (Mac/Linux)
-
-**Cause:** npm doesn't have permission to install globally
-
-**Fix Option 1 - Change npm directory:**
-```bash
-mkdir ~/.npm-global
-npm config set prefix '~/.npm-global'
-echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
-source ~/.bashrc
-npm install -g @anthropic-ai/claude-code
-```
-
-**Fix Option 2 - Use nvm:**
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-# Restart terminal
-nvm install 20
-nvm use 20
-npm install -g @anthropic-ai/claude-code
-```
+Restart your terminal after adding to your shell profile.
 
 ### "Authentication failed"
 

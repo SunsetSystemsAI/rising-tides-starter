@@ -102,7 +102,7 @@ if command -v claude &> /dev/null; then
     CLAUDE_VERSION=$(claude --version 2>&1 | head -n1)
     check_pass "Claude Code installed ($CLAUDE_VERSION)"
 else
-    check_fail "Claude Code not found" "Install: npm install -g @anthropic-ai/claude-code"
+    check_fail "Claude Code not found" "Install: curl -fsSL https://cli.anthropic.com/install.sh | sh"
 fi
 
 # -------------------------------------------

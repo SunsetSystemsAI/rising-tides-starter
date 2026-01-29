@@ -71,7 +71,7 @@ Watch for these key checkpoints:
 | Prerequisites check | Shows `[SKIP]` for installed, installs missing |
 | Node.js install | Installs v20+ or skips if present |
 | Git install | Installs or skips if present |
-| Claude Code install | `npm install -g @anthropic-ai/claude-code` |
+| Claude Code install | Native installer (`curl` or `irm`) |
 | Settings creation | Creates `~/.claude/settings.json` |
 | Tool Search | Adds `ENABLE_TOOL_SEARCH=auto` to shell profile |
 | Skills copy | Reports "Copied X skills" |

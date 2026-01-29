@@ -74,9 +74,9 @@ The setup script automatically installs (skipping anything already present):
 
 | Component | Description |
 |-----------|-------------|
-| **Node.js 20** | Runtime for Claude Code |
+| **Node.js 20** | Runtime for MCP servers and JS tooling |
 | **Git** | Version control |
-| **Claude Code** | The CLI itself |
+| **Claude Code** | Installed via native installer |
 | **Status Line** | Better UX configured |
 | **Tool Search** | `ENABLE_TOOL_SEARCH=auto` for MCP efficiency |
 | **Rising Tides Skills Pack** | Skills copied to `~/.claude/skills/` |
@@ -329,7 +329,7 @@ export ENABLE_TOOL_SEARCH=auto
 1. Installs Xcode Command Line Tools
 2. Installs Homebrew (if missing)
 3. Installs Node.js 20, Git, Python 3, jq
-4. Installs Claude Code via npm
+4. Installs Claude Code via native installer
 5. Creates `~/.claude/settings.json` with status line
 6. Adds `ENABLE_TOOL_SEARCH=auto` to shell profile
 7. Copies skills/plugins to `~/.claude/`
@@ -339,7 +339,7 @@ export ENABLE_TOOL_SEARCH=auto
 
 1. Verifies winget is available
 2. Installs Git, Python 3, Node.js LTS via winget
-3. Installs Claude Code via npm
+3. Installs Claude Code via native installer
 4. Creates settings in `%USERPROFILE%\.claude\`
 5. Adds `ENABLE_TOOL_SEARCH` to PowerShell profile
 6. Copies skills/plugins to `~/.claude/`
@@ -350,7 +350,7 @@ export ENABLE_TOOL_SEARCH=auto
 1. Updates package manager (apt/dnf/yum/pacman)
 2. Installs build tools, Git, Python 3, curl
 3. Installs Node.js 20 via NodeSource
-4. Installs Claude Code via npm
+4. Installs Claude Code via native installer
 5. Creates `~/.claude/settings.json`
 6. Adds `ENABLE_TOOL_SEARCH=auto` to shell profile
 7. Copies skills/plugins to `~/.claude/`

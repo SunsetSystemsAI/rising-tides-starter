@@ -58,7 +58,7 @@ try {
 }
 catch {
     Write-Host "[INFO] Claude Code is NOT installed" -ForegroundColor Yellow
-    Write-Host "       Install with: npm install -g @anthropic-ai/claude-code"
+    Write-Host "       Install with: irm https://cli.anthropic.com/install.ps1 | iex"
 }
 Write-Host ""
 
@@ -96,7 +96,7 @@ if ($fail -eq 0) {
     Write-Host "[SUCCESS] All prerequisites are installed!" -ForegroundColor Green
     Write-Host ""
     Write-Host "Next step: Install Claude Code"
-    Write-Host "  npm install -g @anthropic-ai/claude-code"
+    Write-Host "  irm https://cli.anthropic.com/install.ps1 | iex"
     Write-Host "  claude auth login"
 }
 else {

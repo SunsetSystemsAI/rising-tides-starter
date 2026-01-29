@@ -286,9 +286,11 @@ print_step "7" "Checking Claude Code..."
 
 if command -v claude &> /dev/null; then
     print_skip "Claude Code $(claude --version 2>&1 | head -n1)"
+    print_info "Updating Claude Code to latest..."
+    claude update 2>/dev/null && print_success "Claude Code updated" || print_info "Already up to date (or update not available)"
 else
     print_info "Installing Claude Code..."
-    sudo npm install -g @anthropic-ai/claude-code
+    curl -fsSL https://cli.anthropic.com/install.sh | sh
     print_success "Claude Code installed"
 fi
 

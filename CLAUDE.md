@@ -57,12 +57,14 @@ Always follow this order:
 
 ### 1. Prerequisites
 ```
-Node.js 18+ → npm (bundled) → Git → (optional) VS Code
+Git → Node.js 18+ (for MCP servers/tooling) → (optional) VS Code
 ```
 
 ### 2. Claude Code
 ```
-npm install -g @anthropic-ai/claude-code → claude auth login → claude --version
+Native installer → claude auth login → claude --version
+Mac/Linux: curl -fsSL https://cli.anthropic.com/install.sh | sh
+Windows:   irm https://cli.anthropic.com/install.ps1 | iex
 ```
 
 ### 3. Configuration
@@ -103,9 +105,15 @@ sudo apt-get install -y nodejs
 
 ### Install Claude Code
 
-All platforms:
+**Mac/Linux/WSL2:**
 ```bash
-npm install -g @anthropic-ai/claude-code
+curl -fsSL https://cli.anthropic.com/install.sh | sh
+claude auth login
+```
+
+**Windows (PowerShell):**
+```powershell
+irm https://cli.anthropic.com/install.ps1 | iex
 claude auth login
 ```
 
@@ -171,8 +179,8 @@ If a user has issues, have them run the verification script:
 → Solution: Reinstall Node.js, restart terminal
 
 ### "command not found: claude"
-→ Claude Code not installed globally
-→ Solution: `npm install -g @anthropic-ai/claude-code`
+→ Claude Code not installed or not in PATH
+→ Solution: `curl -fsSL https://cli.anthropic.com/install.sh | sh` (Mac/Linux) or `irm https://cli.anthropic.com/install.ps1 | iex` (Windows)
 
 ### "EACCES permission denied"
 → npm permissions issue on Mac/Linux

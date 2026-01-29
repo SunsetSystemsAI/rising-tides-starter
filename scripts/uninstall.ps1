@@ -53,7 +53,11 @@ if ($claudeInstalled) {
     $removeClaude = Read-Host "  Remove Claude Code? (y/N)"
     if ($removeClaude -eq "y" -or $removeClaude -eq "Y") {
         Write-Host "  Uninstalling Claude Code..."
-        npm uninstall -g @anthropic-ai/claude-code 2>$null
+        $claudePath = "$env:LOCALAPPDATA\Programs\claude\claude.exe"
+        if (Test-Path $claudePath) { Remove-Item $claudePath -Force }
+        # Also try removing from .local/bin if installed via native installer
+        $altPath = "$env:USERPROFILE\.local\bin\claude.exe"
+        if (Test-Path $altPath) { Remove-Item $altPath -Force }
 
         # Check if removed
         $stillInstalled = $false
