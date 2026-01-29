@@ -20,12 +20,8 @@ set -e  # Exit on any error
 # When piped (curl | bash), child processes like Homebrew consume stdin
 # and eat the rest of the script. Re-exec from a temp file to avoid this.
 if [ -z "${__RT_FROM_FILE:-}" ]; then
-    TMPSCRIPT="$(mktemp /tmp/rising-tides-setup.XXXXXX.sh)"
-    # Re-download the script to the temp file
-    curl -fsSL "https://raw.githubusercontent.com/TinyShaft22/rising-tides-starter/main/scripts/setup-mac.sh" -o "$TMPSCRIPT" 2>/dev/null || {
-        # If re-download fails, we might already be running from a file — continue
-        true
-    }
+    TMPSCRIPT=$(mktemp /tmp/rt-setup-XXXXXXXX) || TMPSCRIPT="/tmp/rt-setup-$$.sh"
+    curl -fsSL "https://raw.githubusercontent.com/TinyShaft22/rising-tides-starter/main/scripts/setup-mac.sh" -o "$TMPSCRIPT" 2>/dev/null || true
     if [ -s "$TMPSCRIPT" ]; then
         export __RT_FROM_FILE=1
         exec bash "$TMPSCRIPT" "$@"
@@ -48,6 +44,22 @@ echo -e "${BLUE}============================================${NC}"
 echo -e "${BLUE}   Rising Tides - Complete Setup Script    ${NC}"
 echo -e "${BLUE}============================================${NC}"
 echo ""
+
+# Check for admin/sudo access (required for Homebrew and Xcode tools)
+if ! groups "$(whoami)" 2>/dev/null | grep -qw admin; then
+    echo -e "${RED}ERROR: Your macOS account ($(whoami)) is not an Administrator.${NC}"
+    echo ""
+    echo "Homebrew and Xcode tools require admin access to install."
+    echo ""
+    echo "To fix this:"
+    echo "  1. Open System Settings → Users & Groups"
+    echo "  2. Have an admin user make your account an Administrator"
+    echo "  3. Log out and back in"
+    echo "  4. Re-run this script"
+    echo ""
+    echo "Or run this script from an admin account instead."
+    exit 1
+fi
 
 # -------------------------------------------
 # Helper Functions

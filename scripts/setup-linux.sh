@@ -19,7 +19,7 @@ set -e  # Exit on any error
 # When piped (curl | bash), child processes can consume stdin
 # and eat the rest of the script. Re-exec from a temp file to avoid this.
 if [ -z "${__RT_FROM_FILE:-}" ]; then
-    TMPSCRIPT="$(mktemp /tmp/rising-tides-setup.XXXXXX.sh)"
+    TMPSCRIPT=$(mktemp /tmp/rt-setup-XXXXXXXX) || TMPSCRIPT="/tmp/rt-setup-$$.sh"
     curl -fsSL "https://raw.githubusercontent.com/TinyShaft22/rising-tides-starter/main/scripts/setup-linux.sh" -o "$TMPSCRIPT" 2>/dev/null || true
     if [ -s "$TMPSCRIPT" ]; then
         export __RT_FROM_FILE=1

@@ -7,7 +7,7 @@
 
 # Re-exec from temp file if piped via curl | bash (stdin not available for prompts)
 if [ -z "${__RT_FROM_FILE:-}" ]; then
-    TMPSCRIPT="$(mktemp /tmp/rising-tides-cleanup.XXXXXX.sh)"
+    TMPSCRIPT=$(mktemp /tmp/rt-cleanup-XXXXXXXX) || TMPSCRIPT="/tmp/rt-cleanup-$$.sh"
     curl -fsSL "https://raw.githubusercontent.com/TinyShaft22/rising-tides-starter/main/scripts/cleanup-mac.sh" -o "$TMPSCRIPT" 2>/dev/null || true
     if [ -s "$TMPSCRIPT" ]; then
         export __RT_FROM_FILE=1
