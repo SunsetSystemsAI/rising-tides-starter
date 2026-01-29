@@ -271,5 +271,5 @@ if ($FAIL_COUNT -eq 0) {
 # -------------------------------------------
 
 Write-Host "Need help? Join the community:"
-Write-Host "  https://skool.com/rising-tides" -ForegroundColor Cyan
+Write-Host "  https://www.skool.com/rising-tides-9034" -ForegroundColor Cyan
 Write-Host ""

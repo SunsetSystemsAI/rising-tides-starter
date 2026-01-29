@@ -403,7 +403,7 @@ New user starter pack/
 
 ## Support
 
-- **Community:** [Rising Tides on Skool](https://skool.com/rising-tides) — Get help, share wins
+- **Community:** [Rising Tides on Skool](https://www.skool.com/rising-tides-9034) — Get help, share wins
 - **Issues:** [GitHub Issues](https://github.com/TinyShaft22/rising-tides-starter/issues)
 - **Skills Pack:** [Rising Tides Pack](https://github.com/TinyShaft22/rising-tides-pack)
 

@@ -385,7 +385,7 @@ claude
 
 ## Support
 
-- **Community:** [Rising Tides on Skool](https://skool.com/rising-tides)
+- **Community:** [Rising Tides on Skool](https://www.skool.com/rising-tides-9034)
 - **Skills Pack Issues:** [GitHub Issues](https://github.com/TinyShaft22/rising-tides-starter/issues)
 
 ---

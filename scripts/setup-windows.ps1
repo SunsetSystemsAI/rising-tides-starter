@@ -425,7 +425,7 @@ if ((Test-Path $localSkillsDir) -and (Test-Path $localPluginsDir)) {
         Write-Host "What to do:" -ForegroundColor Yellow
         Write-Host "  - Download the starter pack manually"
         Write-Host "  - Run this script from the downloaded folder"
-        Write-Host "  - Join https://skool.com/rising-tides for support"
+        Write-Host "  - Join https://www.skool.com/rising-tides-9034 for support"
         Write-Host ""
         if (Test-Path $tempDir) {
             Remove-Item $tempDir -Recurse -Force -ErrorAction SilentlyContinue
@@ -551,7 +551,7 @@ Write-Host "============================================" -ForegroundColor Cyan
 Write-Host "   Need Help? Join the Community           " -ForegroundColor Cyan
 Write-Host "============================================" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "  https://skool.com/rising-tides" -ForegroundColor Green
+Write-Host "  https://www.skool.com/rising-tides-9034" -ForegroundColor Green
 Write-Host ""
 Write-Host "  Get support, share wins, and connect with other users."
 Write-Host ""

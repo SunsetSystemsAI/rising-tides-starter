@@ -244,5 +244,5 @@ fi
 # -------------------------------------------
 
 echo "Need help? Join the community:"
-echo -e "  ${BLUE}https://skool.com/rising-tides${NC}"
+echo -e "  ${BLUE}https://www.skool.com/rising-tides-9034${NC}"
 echo ""

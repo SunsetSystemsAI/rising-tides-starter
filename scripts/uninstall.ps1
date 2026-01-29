@@ -190,5 +190,5 @@ Write-Host ""
 Write-Host "To reinstall later, run the setup script again:"
 Write-Host "  .\scripts\setup-windows.ps1" -ForegroundColor Green
 Write-Host ""
-Write-Host "Questions? Visit: https://skool.com/rising-tides"
+Write-Host "Questions? Visit: https://www.skool.com/rising-tides-9034"
 Write-Host ""
