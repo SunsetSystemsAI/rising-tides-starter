@@ -5,6 +5,17 @@
 # Undoes everything the setup script installed
 # ===========================================
 
+# Re-exec from temp file if piped via curl | bash (stdin not available for prompts)
+if [ -z "${__RT_FROM_FILE:-}" ]; then
+    TMPSCRIPT="$(mktemp /tmp/rising-tides-cleanup.XXXXXX.sh)"
+    curl -fsSL "https://raw.githubusercontent.com/TinyShaft22/rising-tides-starter/main/scripts/cleanup-mac.sh" -o "$TMPSCRIPT" 2>/dev/null || true
+    if [ -s "$TMPSCRIPT" ]; then
+        export __RT_FROM_FILE=1
+        exec bash "$TMPSCRIPT" "$@"
+    fi
+    rm -f "$TMPSCRIPT" 2>/dev/null || true
+fi
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
