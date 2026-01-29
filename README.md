@@ -44,7 +44,7 @@ Or if you've downloaded the starter pack:
 Open PowerShell **as Administrator** and run:
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/TinyShaft22/rising-tides-starter/main/scripts/setup-windows.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; iex (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/TinyShaft22/rising-tides-starter/main/scripts/setup-windows.ps1' -UseBasicParsing).Content
 ```
 
 Or if you've downloaded the starter pack:
