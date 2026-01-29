@@ -33,6 +33,8 @@ Open Terminal and run:
 curl -fsSL https://raw.githubusercontent.com/TinyShaft22/rising-tides-starter/main/scripts/setup-mac.sh | bash
 ```
 
+> **Do NOT use `sudo`.** The script handles permissions internally. Running with `sudo` breaks Homebrew ownership and causes Claude config files to be owned by root.
+
 Or if you've downloaded the starter pack:
 
 ```bash
@@ -279,7 +281,17 @@ If you prefer step-by-step control:
 
 ## Troubleshooting
 
-### Script fails on Mac
+### Script fails or stops partway on Mac
+
+If the setup script stopped partway (e.g. after Node.js install), clean up and start fresh:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/TinyShaft22/rising-tides-starter/main/scripts/cleanup-mac.sh | bash
+```
+
+Then restart your terminal and re-run the setup (without `sudo`).
+
+### Permission denied on Mac
 
 ```bash
 # If permission denied
