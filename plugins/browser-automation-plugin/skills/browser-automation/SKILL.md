@@ -8,6 +8,37 @@ mcp: claude-in-chrome
 
 Control Chrome browser directly for automation, testing, and web interaction.
 
+## Prerequisites
+
+**Claude in Chrome is a BUILT-IN MCP** - no npm package to install.
+
+### Setup Steps
+
+1. **Install the Chrome extension**
+   - Go to https://claude.ai/chrome
+   - Install "Claude in Chrome" extension
+
+2. **Enable in Claude Code** (one of these):
+   ```bash
+   # Option A: Launch with flag
+   claude --chrome
+
+   # Option B: Enable permanently
+   # Add to ~/.claude.json: "claudeInChromeDefaultEnabled": true
+   ```
+
+3. **Verify connection**
+   - Restart Chrome after installing extension
+   - Restart Claude Code
+   - Test with: `Get my browser tabs`
+
+### Important: WSL Users
+
+Claude in Chrome **does not work from WSL**. The native messaging bridge requires both Chrome and Claude Code to run in the same OS environment.
+
+- **Windows users**: Run Claude Code from PowerShell, not WSL
+- **Mac/Linux users**: Works natively
+
 ## Trigger
 
 Invoke when:

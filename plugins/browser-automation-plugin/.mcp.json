@@ -1,8 +1,7 @@
 {
-  "mcpServers": {
-    "claude-in-chrome": {
-      "command": "npx",
-      "args": ["-y", "@anthropic-ai/claude-in-chrome-mcp"]
-    }
-  }
+  "_comment": "Claude in Chrome is a BUILT-IN MCP - no external package needed",
+  "_setup": "1. Install Chrome extension from https://claude.ai/chrome",
+  "_setup2": "2. Run 'claude --chrome' OR set claudeInChromeDefaultEnabled: true",
+  "_setup3": "3. The mcp__claude-in-chrome__* tools will auto-activate",
+  "mcpServers": {}
 }
