@@ -1,0 +1,5 @@
+{
+  "name": "docker-plugin",
+  "description": "Docker container management with MCP server for container lifecycle, images, networks, and volumes",
+  "version": "1.0.0"
+}

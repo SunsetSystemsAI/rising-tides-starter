@@ -1,7 +1,7 @@
 ---
 name: react-dev
-version: 1.0.0
-description: This skill should be used when building React components with TypeScript, typing hooks, handling events, or when React TypeScript, React 19, Server Components are mentioned. Covers type-safe patterns for React 18-19 including generic components, proper event typing, and routing integration (TanStack Router, React Router).
+version: 1.1.0
+description: This skill should be used when building React components with TypeScript, typing hooks, handling events, managing UI states (loading, error, empty), optimizing performance, or when React TypeScript, React 19, Server Components are mentioned. Covers type-safe patterns for React 18-19 including generic components, proper event typing, routing integration (TanStack Router, React Router), UI state management, and performance optimization.
 mcp: context7
 ---
 
@@ -35,6 +35,8 @@ Type-safe React = compile-time guarantees = confident refactoring.
 - Using React 19 features (Actions, Server Components, use())
 - Router integration (TanStack Router, React Router)
 - Custom hooks with proper typing
+- Handling loading, error, and empty UI states
+- Optimizing React/Next.js performance
 
 NOT for: non-React TypeScript, vanilla JS React
 
@@ -47,7 +49,6 @@ React 19 breaking changes require migration. Key patterns:
 **ref as prop** - forwardRef deprecated:
 
 ```typescript
-// React 19 - ref as regular prop
 type ButtonProps = {
   ref?: React.Ref<HTMLButtonElement>;
 } & React.ComponentPropsWithoutRef<'button'>;
@@ -129,23 +130,19 @@ function Button(props: ButtonProps) {
 Use specific event types for accurate target typing:
 
 ```typescript
-// Mouse
 function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
   e.currentTarget.disabled = true;
 }
 
-// Form
 function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   e.preventDefault();
   const formData = new FormData(e.currentTarget);
 }
 
-// Input
 function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
   console.log(e.target.value);
 }
 
-// Keyboard
 function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
   if (e.key === 'Enter') e.currentTarget.blur();
 }
@@ -216,8 +213,6 @@ See [hooks.md](references/hooks.md) for useCallback, useMemo, useImperativeHandl
 
 Generic components infer types from props - no manual annotations at call site.
 
-**Pattern** - keyof T for column keys, render props for custom rendering:
-
 ```typescript
 type Column<T> = {
   key: keyof T;
@@ -267,11 +262,47 @@ See [generic-components.md](examples/generic-components.md) for Select, List, Mo
 
 </generic_components>
 
+<ui_states>
+
+**Loading** - only show loading indicator when there is no data to display:
+
+```typescript
+const { data, loading, error } = useQuery();
+
+if (error) return <ErrorState error={error} onRetry={refetch} />;
+if (loading && !data) return <LoadingState />;
+if (!data?.items.length) return <EmptyState />;
+
+return <ItemList items={data.items} />;
+```
+
+Use skeletons for known content shapes (lists, cards, page loads). Use spinners for unknown shapes (modals, inline operations).
+
+**Errors** - never swallow silently. Hierarchy: inline field errors, toast for recoverable, banner for partial, full screen for unrecoverable.
+
+```typescript
+// Always surface errors to the user
+onError: (error) => {
+  console.error('operation failed:', error);
+  toast.error({ title: 'Operation failed' });
+}
+```
+
+**Buttons** - always disable during async operations to prevent double-submission:
+
+```tsx
+<Button onClick={submit} disabled={loading} isLoading={loading}>
+  Submit
+</Button>
+```
+
+**Empty states** - every list/collection must have one with contextual messaging and a call-to-action when appropriate.
+
+</ui_states>
+
 <server_components>
 
 React 19 Server Components run on server, can be async.
-
-**Async data fetching**:
 
 ```typescript
 export default async function UserPage({ params }: { params: { id: string } }) {
@@ -307,7 +338,7 @@ function UserForm({ userId }: { userId: string }) {
 }
 ```
 
-**use() for promise handoff**:
+**use() for promise handoff** - server passes promise, client unwraps:
 
 ```typescript
 // Server: pass promise without await
@@ -328,9 +359,34 @@ See [server-components.md](examples/server-components.md) for parallel fetching,
 
 </server_components>
 
-<routing>
+<performance>
 
-Both TanStack Router and React Router v7 provide type-safe routing solutions.
+**Eliminating waterfalls (CRITICAL):**
+- `Promise.all()` for independent async operations
+- Move `await` into branches where actually used (defer-await)
+- Use Suspense boundaries to stream content progressively
+
+**Bundle size (CRITICAL):**
+- Import directly from modules, avoid barrel files
+- Use `next/dynamic` or `React.lazy` for heavy components
+- Defer third-party scripts (analytics, logging) until after hydration
+- Preload on hover/focus for perceived speed
+
+**Server-side (HIGH):**
+- `React.cache()` for per-request dedup, LRU cache for cross-request
+- Minimize data serialized to client components
+- Restructure component tree to parallelize fetches
+
+**Re-render optimization (MEDIUM):**
+- Extract expensive work into memoized components
+- Use primitive dependencies in effects, not objects
+- Functional setState for stable callbacks (`setValue(v => v + 1)`)
+- `startTransition` for non-urgent updates
+- Lazy state init: `useState(() => expensiveComputation())`
+
+</performance>
+
+<routing>
 
 **TanStack Router** - Compile-time type safety with Zod validation:
 
@@ -351,7 +407,6 @@ const userRoute = createRoute({
 function UserPage() {
   const { user } = useLoaderData({ from: userRoute.id });
   const { tab, page } = useSearch({ from: userRoute.id });
-  const { userId } = useParams({ from: userRoute.id });
 }
 ```
 
@@ -365,12 +420,12 @@ export async function loader({ params }: Route.LoaderArgs) {
 }
 
 export default function UserPage({ loaderData }: Route.ComponentProps) {
-  const { user } = loaderData; // Typed from loader
+  const { user } = loaderData;
   return <h1>{user.name}</h1>;
 }
 ```
 
-See [tanstack-router.md](references/tanstack-router.md) for TanStack patterns and [react-router.md](references/react-router.md) for React Router patterns.
+See [tanstack-router.md](references/tanstack-router.md) and [react-router.md](references/react-router.md) for full patterns.
 
 </routing>
 
@@ -385,6 +440,11 @@ ALWAYS:
 - ref as prop in React 19 (no forwardRef)
 - useActionState for form actions
 - Type-safe routing patterns (see routing section)
+- Loading state only when no data exists (never flash on refetch)
+- Disable buttons during async operations
+- Surface all errors to the user (toast, banner, or inline)
+- Empty states for every collection
+- Promise.all for independent async operations
 
 NEVER:
 - any for event handlers
@@ -394,6 +454,9 @@ NEVER:
 - Forget null handling for DOM refs
 - Mix Server/Client components in same file
 - Await promises when passing to use()
+- Swallow errors silently (console.log only)
+- Show spinner when cached data exists
+- Import from barrel files in performance-sensitive paths
 
 </rules>
 

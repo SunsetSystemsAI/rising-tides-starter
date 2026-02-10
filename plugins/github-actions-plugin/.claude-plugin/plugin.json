@@ -1,0 +1,5 @@
+{
+  "name": "github-actions-plugin",
+  "description": "GitHub Actions workflow management with MCP for triggering, monitoring, and debugging CI/CD pipelines",
+  "version": "1.0.0"
+}

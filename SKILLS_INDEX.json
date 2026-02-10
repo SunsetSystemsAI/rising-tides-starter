@@ -2,11 +2,12 @@
   "meta": {
     "name": "Rising Tides Skills Pack",
     "version": "1.0.0",
-    "lastUpdated": "2026-01-27",
-    "totalSkills": 78,
-    "totalPlugins": 12,
+    "lastUpdated": "2026-02-09",
+    "totalSkills": 180,
+    "totalPlugins": 37,
     "totalCLIs": 9,
-    "totalMCPs": 8
+    "totalMCPs": 17,
+    "totalCompanionPlugins": 11
   },
   "clis": {
     "gh": {
@@ -72,7 +73,10 @@
     "datadog": {
       "name": "Datadog CLI",
       "install": "npx @leoflores/datadog-cli",
-      "env": ["DD_API_KEY", "DD_APP_KEY"],
+      "env": [
+        "DD_API_KEY",
+        "DD_APP_KEY"
+      ],
       "docs": "https://app.datadoghq.com/organization-settings/api-keys"
     }
   },
@@ -83,7 +87,10 @@
       "install": "npx -y @upstash/context7-mcp",
       "config": {
         "command": "npx",
-        "args": ["-y", "@upstash/context7-mcp"]
+        "args": [
+          "-y",
+          "@upstash/context7-mcp"
+        ]
       }
     },
     "playwright": {
@@ -92,7 +99,10 @@
       "install": "npx -y @playwright/mcp",
       "config": {
         "command": "npx",
-        "args": ["-y", "@playwright/mcp"]
+        "args": [
+          "-y",
+          "@playwright/mcp"
+        ]
       }
     },
     "remotion": {
@@ -101,7 +111,10 @@
       "install": "npx -y @anthropic-ai/mcp-server-remotion",
       "config": {
         "command": "npx",
-        "args": ["-y", "@anthropic-ai/mcp-server-remotion"]
+        "args": [
+          "-y",
+          "@anthropic-ai/mcp-server-remotion"
+        ]
       }
     },
     "github": {
@@ -110,7 +123,10 @@
       "install": "npx -y @anthropic-ai/mcp-server-github",
       "config": {
         "command": "npx",
-        "args": ["-y", "@anthropic-ai/mcp-server-github"]
+        "args": [
+          "-y",
+          "@anthropic-ai/mcp-server-github"
+        ]
       }
     },
     "memory": {
@@ -119,7 +135,10 @@
       "install": "npx -y @modelcontextprotocol/server-memory",
       "config": {
         "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-memory"]
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-memory"
+        ]
       }
     },
     "claude-in-chrome": {
@@ -134,7 +153,10 @@
       "install": "npx -y @jpisnice/shadcn-ui-mcp-server",
       "config": {
         "command": "npx",
-        "args": ["-y", "@jpisnice/shadcn-ui-mcp-server"]
+        "args": [
+          "-y",
+          "@jpisnice/shadcn-ui-mcp-server"
+        ]
       }
     },
     "perplexity": {
@@ -143,7 +165,139 @@
       "install": "npx -y @jschuller/perplexity-mcp",
       "config": {
         "command": "npx",
-        "args": ["-y", "@jschuller/perplexity-mcp"]
+        "args": [
+          "-y",
+          "@jschuller/perplexity-mcp"
+        ]
+      }
+    },
+    "docker": {
+      "name": "Docker MCP",
+      "purpose": "Container management, image operations, Docker Compose",
+      "install": "npx -y mcp-server-docker",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "mcp-server-docker"
+        ]
+      }
+    },
+    "github-actions": {
+      "name": "GitHub Actions MCP",
+      "purpose": "Manage workflows, trigger runs, view logs",
+      "install": "npx -y github-actions-mcp-server",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "github-actions-mcp-server"
+        ],
+        "env": {
+          "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+        }
+      }
+    },
+    "linear": {
+      "name": "Linear MCP",
+      "purpose": "Issue tracking and project management via Linear",
+      "install": "npx -y @anthropic/mcp-linear",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@anthropic/mcp-linear"
+        ],
+        "env": {
+          "LINEAR_API_KEY": "${LINEAR_API_KEY}"
+        }
+      }
+    },
+    "postgres": {
+      "name": "PostgreSQL MCP",
+      "purpose": "Direct PostgreSQL database operations",
+      "install": "npx -y @anthropic/mcp-postgres",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@anthropic/mcp-postgres"
+        ],
+        "env": {
+          "DATABASE_URL": "${DATABASE_URL}"
+        }
+      }
+    },
+    "sentry": {
+      "name": "Sentry MCP",
+      "purpose": "Error monitoring, issue tracking, incident response",
+      "install": "npx -y @anthropic/mcp-sentry",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@anthropic/mcp-sentry"
+        ],
+        "env": {
+          "SENTRY_AUTH_TOKEN": "${SENTRY_AUTH_TOKEN}"
+        }
+      }
+    },
+    "slack": {
+      "name": "Slack MCP",
+      "purpose": "Slack workspace operations and messaging",
+      "install": "npx -y @anthropic/mcp-slack",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@anthropic/mcp-slack"
+        ],
+        "env": {
+          "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}"
+        }
+      }
+    },
+    "notion": {
+      "name": "Notion MCP",
+      "purpose": "Notion database and page operations",
+      "install": "npx -y @anthropic/mcp-notion",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@anthropic/mcp-notion"
+        ],
+        "env": {
+          "NOTION_API_KEY": "${NOTION_API_KEY}"
+        }
+      }
+    },
+    "atlassian": {
+      "name": "Atlassian MCP",
+      "purpose": "Jira and Confluence integration",
+      "install": "docker run -i --rm ghcr.io/sooperset/mcp-atlassian:latest",
+      "config": {
+        "command": "docker",
+        "args": [
+          "run",
+          "-i",
+          "--rm",
+          "ghcr.io/sooperset/mcp-atlassian:latest"
+        ]
+      },
+      "note": "Community MCP - requires Docker"
+    },
+    "chrome-devtools": {
+      "name": "Chrome DevTools MCP",
+      "purpose": "Browser debugging, performance profiling, and network inspection via Chrome DevTools Protocol",
+      "install": "npx -y chrome-devtools-mcp@latest",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "chrome-devtools-mcp@latest"
+        ]
       }
     }
   },
@@ -151,74 +305,400 @@
     {
       "id": "react-dev-plugin",
       "skill": "react-dev",
-      "mcps": ["context7"],
-      "purpose": "React development with live docs"
+      "mcps": [
+        "context7"
+      ],
+      "purpose": "React development with live docs",
+      "companionSkills": [
+        "frontend-design",
+        "design-system-starter",
+        "typescript-pro",
+        "webapp-testing",
+        "git-workflow"
+      ]
     },
     {
       "id": "frontend-design-plugin",
       "skill": "frontend-design",
-      "mcps": ["context7"],
-      "purpose": "Frontend architecture with live docs"
+      "mcps": [
+        "context7"
+      ],
+      "purpose": "Frontend architecture with live docs",
+      "companionSkills": [
+        "react-dev",
+        "design-system-starter",
+        "theme-factory"
+      ]
     },
     {
       "id": "frontend-ui-plugin",
       "skill": "frontend-design",
-      "mcps": ["context7", "shadcn"],
-      "purpose": "Full frontend with components"
+      "mcps": [
+        "context7",
+        "shadcn"
+      ],
+      "purpose": "Full frontend with components",
+      "companionSkills": [
+        "react-dev",
+        "frontend-design",
+        "design-system-starter"
+      ]
     },
     {
       "id": "mcp-builder-plugin",
       "skill": "mcp-builder",
-      "mcps": ["context7"],
-      "purpose": "MCP server development"
+      "mcps": [
+        "context7"
+      ],
+      "purpose": "MCP server development",
+      "companionSkills": [
+        "plugin-forge",
+        "skill-creator",
+        "api-designer"
+      ]
     },
     {
       "id": "webapp-testing-plugin",
       "skill": "webapp-testing",
-      "mcps": ["playwright"],
-      "purpose": "E2E testing and browser automation"
+      "mcps": [
+        "playwright"
+      ],
+      "purpose": "E2E testing and browser automation",
+      "companionSkills": [
+        "react-dev",
+        "test-master",
+        "git-workflow",
+        "debugging"
+      ]
     },
     {
       "id": "browser-automation-plugin",
       "skill": "browser-automation",
-      "mcps": ["claude-in-chrome"],
-      "purpose": "Full browser control"
+      "mcps": [
+        "claude-in-chrome"
+      ],
+      "purpose": "Full browser control",
+      "companionSkills": [
+        "webapp-testing",
+        "chrome-extension-troubleshooting"
+      ]
     },
     {
       "id": "video-generator-plugin",
       "skill": "video-generator",
-      "mcps": ["remotion"],
-      "purpose": "Programmatic video creation"
+      "mcps": [
+        "remotion"
+      ],
+      "purpose": "Programmatic video creation",
+      "companionSkills": [
+        "react-dev",
+        "frontend-design"
+      ]
     },
     {
       "id": "git-workflow-plugin",
-      "skill": "commit-work",
-      "mcps": ["github"],
-      "purpose": "Git commits and PR management"
+      "skill": "git-workflow",
+      "mcps": [
+        "github"
+      ],
+      "purpose": "Git commits and PR management",
+      "companionSkills": [
+        "code-reviewer",
+        "debugging",
+        "feature-forge",
+        "dependency-updater"
+      ]
     },
     {
       "id": "context7-plugin",
-      "skill": null,
-      "mcps": ["context7"],
-      "purpose": "Direct docs access for any library"
+      "skill": "context7",
+      "mcps": [
+        "context7"
+      ],
+      "purpose": "Direct docs access for any library",
+      "companionSkills": [
+        "react-dev",
+        "frontend-design",
+        "mcp-builder",
+        "typescript-pro",
+        "modern-python"
+      ]
     },
     {
       "id": "playwright-plugin",
-      "skill": null,
-      "mcps": ["playwright"],
-      "purpose": "Direct browser automation"
+      "skill": "playwright",
+      "mcps": [
+        "playwright"
+      ],
+      "purpose": "Direct browser automation",
+      "companionSkills": [
+        "webapp-testing",
+        "test-master",
+        "react-dev"
+      ]
     },
     {
       "id": "remotion-plugin",
-      "skill": null,
-      "mcps": ["remotion"],
-      "purpose": "Direct video generation tools"
+      "skill": "remotion",
+      "mcps": [
+        "remotion"
+      ],
+      "purpose": "Direct video generation tools",
+      "companionSkills": [
+        "video-generator",
+        "react-dev"
+      ]
     },
     {
       "id": "memory-plugin",
-      "skill": null,
-      "mcps": ["memory"],
+      "skill": "memory-graph",
+      "mcps": [
+        "memory"
+      ],
       "purpose": "Direct memory management"
+    },
+    {
+      "id": "docker-plugin",
+      "skill": "docker-management",
+      "mcps": [
+        "docker"
+      ],
+      "purpose": "Docker container management",
+      "companionSkills": [
+        "kubernetes-specialist",
+        "devops-engineer",
+        "microservices-architect",
+        "terraform-pro"
+      ]
+    },
+    {
+      "id": "github-actions-plugin",
+      "skill": "github-actions-management",
+      "mcps": [
+        "github-actions"
+      ],
+      "purpose": "GitHub Actions workflow management",
+      "companionSkills": [
+        "git-workflow",
+        "devops-engineer",
+        "gitops-workflows"
+      ]
+    },
+    {
+      "id": "security-burpsuite-parser-plugin",
+      "skill": "security-burpsuite-parser",
+      "mcps": [],
+      "purpose": "Burp Suite project file parsing",
+      "companionSkills": [
+        "security-testing-handbook",
+        "security-code-review"
+      ]
+    },
+    {
+      "id": "security-entry-points-plugin",
+      "skill": "security-entry-points",
+      "mcps": [],
+      "purpose": "Smart contract entry point analysis",
+      "companionSkills": [
+        "security-code-review",
+        "security-static-analysis"
+      ]
+    },
+    {
+      "id": "security-firebase-apk-plugin",
+      "skill": "security-firebase-apk",
+      "mcps": [],
+      "purpose": "Firebase APK security scanning",
+      "companionSkills": [
+        "firebase-guide"
+      ]
+    },
+    {
+      "id": "security-fix-review-plugin",
+      "skill": "security-fix-review",
+      "mcps": [],
+      "purpose": "Security fix verification",
+      "companionSkills": [
+        "security-code-review",
+        "git-workflow"
+      ]
+    },
+    {
+      "id": "semgrep-rule-variants-plugin",
+      "skill": "semgrep-rule-variants",
+      "mcps": [],
+      "purpose": "Semgrep rule language variants",
+      "companionSkills": [
+        "semgrep-rule-creator",
+        "security-static-analysis"
+      ]
+    },
+    {
+      "id": "security-sharp-edges-plugin",
+      "skill": "security-sharp-edges",
+      "mcps": [],
+      "purpose": "Error-prone API identification",
+      "companionSkills": [
+        "security-code-review"
+      ]
+    },
+    {
+      "id": "security-spec-compliance-plugin",
+      "skill": "security-spec-compliance",
+      "mcps": [],
+      "purpose": "Spec-to-code compliance checking",
+      "companionSkills": [
+        "security-code-review"
+      ]
+    },
+    {
+      "id": "security-static-analysis-plugin",
+      "skill": "security-static-analysis",
+      "mcps": [],
+      "purpose": "Static analysis with CodeQL and Semgrep",
+      "companionSkills": [
+        "security-code-review",
+        "semgrep-rule-creator"
+      ]
+    },
+    {
+      "id": "security-testing-handbook-plugin",
+      "skill": "security-testing-handbook",
+      "mcps": [],
+      "purpose": "Application security testing handbook",
+      "companionSkills": [
+        "security-code-review",
+        "webapp-testing"
+      ]
+    },
+    {
+      "id": "security-variant-analysis-plugin",
+      "skill": "security-variant-analysis",
+      "mcps": [],
+      "purpose": "Vulnerability variant analysis",
+      "companionSkills": [
+        "security-static-analysis",
+        "security-code-review"
+      ]
+    },
+    {
+      "id": "yara-rule-authoring-plugin",
+      "skill": "yara-rule-authoring",
+      "mcps": [],
+      "purpose": "YARA detection rule authoring",
+      "companionSkills": [
+        "security-static-analysis"
+      ]
+    },
+    {
+      "id": "security-smart-contracts-plugin",
+      "skill": "security-smart-contracts",
+      "mcps": [],
+      "purpose": "Secure smart contract development",
+      "companionSkills": [
+        "security-code-review"
+      ]
+    },
+    {
+      "id": "security-insecure-defaults-plugin",
+      "skill": "security-insecure-defaults",
+      "mcps": [],
+      "purpose": "Insecure default detection",
+      "companionSkills": [
+        "security-code-review"
+      ]
+    },
+    {
+      "id": "modern-python-plugin",
+      "skill": "modern-python",
+      "mcps": [],
+      "purpose": "Modern Python best practices",
+      "companionSkills": [
+        "python-pro",
+        "fastapi-expert",
+        "django-expert"
+      ]
+    },
+    {
+      "id": "property-based-testing-plugin",
+      "skill": "property-based-testing",
+      "mcps": [],
+      "purpose": "Property-based testing guidance",
+      "companionSkills": [
+        "python-pro",
+        "test-master",
+        "modern-python"
+      ]
+    },
+    {
+      "id": "semgrep-rule-creator-plugin",
+      "skill": "semgrep-rule-creator",
+      "mcps": [],
+      "purpose": "Custom Semgrep rule creation",
+      "companionSkills": [
+        "security-static-analysis",
+        "semgrep-rule-variants"
+      ]
+    },
+    {
+      "id": "security-timing-analysis-plugin",
+      "skill": "security-timing-analysis",
+      "mcps": [],
+      "purpose": "Timing side-channel detection",
+      "companionSkills": [
+        "security-code-review"
+      ]
+    },
+    {
+      "id": "security-chrome-troubleshooting-plugin",
+      "skill": "security-chrome-troubleshooting",
+      "mcps": [],
+      "purpose": "Claude in Chrome MCP troubleshooting",
+      "companionSkills": [
+        "chrome-extension-troubleshooting",
+        "browser-automation"
+      ]
+    },
+    {
+      "id": "ask-questions-first-plugin",
+      "skill": "ask-questions-first",
+      "mcps": [],
+      "purpose": "Requirement clarification before implementation",
+      "companionSkills": [
+        "requirements-clarity",
+        "feature-forge"
+      ]
+    },
+    {
+      "id": "culture-index-plugin",
+      "skill": "culture-index",
+      "mcps": [],
+      "purpose": "Culture Index survey interpretation"
+    },
+    {
+      "id": "dwarf-expert-plugin",
+      "skill": "dwarf-expert",
+      "mcps": [],
+      "purpose": "DWARF debug format analysis"
+    },
+    {
+      "id": "security-audit-context-plugin",
+      "skill": "security-audit-context",
+      "mcps": [],
+      "purpose": "Deep architectural context for security audits",
+      "companionSkills": [
+        "security-code-review"
+      ]
+    },
+    {
+      "id": "security-differential-review-plugin",
+      "skill": "security-differential-review",
+      "mcps": [],
+      "purpose": "Security-focused differential code review",
+      "companionSkills": [
+        "security-code-review",
+        "git-workflow"
+      ]
     }
   ],
   "categories": {
@@ -234,574 +714,1056 @@
     "design": "Visual design, themes, video, presentations",
     "architecture": "C4, MCP building, plugins, skills",
     "integrations": "External AI, monitoring, project management",
-    "utilities": "Naming, domains, web scraping, humanizer"
+    "utilities": "Naming, domains, web scraping, humanizer",
+    "security": "Security auditing, vulnerability analysis, secure coding",
+    "devops": "CI/CD, containers, orchestration, infrastructure",
+    "testing": "Test patterns, E2E, property-based, unit testing",
+    "languages": "Language-specific expertise and best practices",
+    "ai-ml": "Machine learning, RAG, prompt engineering, fine-tuning"
   },
   "skills": [
     {
       "id": "ab-test-setup",
       "name": "A/B Test Setup",
       "category": "cro",
-      "triggers": ["a/b test", "experiment", "split test", "variant"],
+      "triggers": [
+        "a/b test",
+        "experiment",
+        "split test",
+        "variant"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" or \"hypothesis.\" For tracking implementation, see analytics-tracking.",
+      "dependencies": {
+        "recommended": [
+          "analytics-tracking",
+          "copywriting",
+          "page-cro"
+        ]
+      }
     },
     {
       "id": "analytics-tracking",
       "name": "Analytics Tracking",
       "category": "marketing",
-      "triggers": ["analytics", "tracking", "measurement", "GA4", "events"],
+      "triggers": [
+        "analytics",
+        "tracking",
+        "measurement",
+        "GA4",
+        "events"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"conversion tracking,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" or \"tracking plan.\" For A/B test measurement, see ab-test-setup.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "page-cro",
+          "seo-audit"
+        ]
+      }
     },
     {
       "id": "backend-to-frontend-handoff-docs",
       "name": "Backend to Frontend Handoff",
       "category": "documentation",
-      "triggers": ["API handoff", "backend docs", "frontend integration", "API documentation"],
+      "triggers": [
+        "API handoff",
+        "backend docs",
+        "frontend integration",
+        "API documentation"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Create API handoff documentation for frontend developers. Use when backend work is complete and needs to be documented for frontend integration, or user says 'create handoff', 'document API', 'frontend handoff', or 'API documentation'."
     },
     {
       "id": "brand-guidelines",
       "name": "Brand Guidelines",
       "category": "design",
-      "triggers": ["brand", "brand colors", "typography", "brand identity"],
+      "triggers": [
+        "brand",
+        "brand colors",
+        "typography",
+        "brand identity"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "anthropic"
+      "source": "anthropic",
+      "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply."
     },
     {
       "id": "c4-architecture",
       "name": "C4 Architecture",
       "category": "architecture",
-      "triggers": ["C4", "architecture diagram", "system context", "container diagram"],
+      "triggers": [
+        "C4",
+        "architecture diagram",
+        "system context",
+        "container diagram"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Generate architecture documentation using C4 model Mermaid diagrams. Use when asked to create architecture diagrams, document system architecture, visualize software structure, create C4 diagrams, or generate context/container/component/deployment diagrams. Triggers include \"architecture diagram\", \"C4 diagram\", \"system context\", \"container diagram\", \"component diagram\", \"deployment diagram\", \"document architecture\", \"visualize architecture\"."
     },
     {
       "id": "canvas-design",
       "name": "Canvas Design",
       "category": "design",
-      "triggers": ["canvas", "visual art", "png", "pdf design", "graphic"],
+      "triggers": [
+        "canvas",
+        "visual art",
+        "png",
+        "pdf design",
+        "graphic"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "anthropic"
+      "source": "anthropic",
+      "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations."
     },
     {
       "id": "command-creator",
       "name": "Command Creator",
       "category": "architecture",
-      "triggers": ["create command", "slash command", "CLI command"],
+      "triggers": [
+        "create command",
+        "slash command",
+        "CLI command"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
-    },
-    {
-      "id": "commit-work",
-      "name": "Commit Work",
-      "category": "workflow",
-      "triggers": ["commit", "git commit", "stage changes", "commit message"],
-      "cli": "gh",
-      "mcp": "github",
-      "plugin": "git-workflow-plugin",
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "This skill should be used when creating a Claude Code slash command. Use when users ask to \"create a command\", \"make a slash command\", \"add a command\", or want to document a workflow as a reusable command. Essential for creating optimized, agent-executable slash commands with proper structure and best practices."
     },
     {
       "id": "competitor-alternatives",
       "name": "Competitor Alternatives",
       "category": "marketing",
-      "triggers": ["competitor", "alternatives", "comparison", "vs page"],
+      "triggers": [
+        "competitor",
+        "alternatives",
+        "comparison",
+        "vs page"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' or 'competitive landing pages.' Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. Emphasizes deep research, modular content architecture, and varied section types beyond feature tables.",
+      "dependencies": {
+        "recommended": [
+          "copywriting",
+          "programmatic-seo",
+          "schema-markup",
+          "seo-audit"
+        ]
+      }
     },
     {
       "id": "copy-editing",
       "name": "Copy Editing",
       "category": "marketing",
-      "triggers": ["edit copy", "review copy", "improve copy", "copy feedback"],
+      "triggers": [
+        "edit copy",
+        "review copy",
+        "improve copy",
+        "copy feedback"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "copywriting",
+          "marketing-psychology",
+          "page-cro"
+        ]
+      }
     },
     {
       "id": "copywriting",
       "name": "Copywriting",
       "category": "marketing",
-      "triggers": ["copywriting", "marketing copy", "headlines", "CTAs", "landing page copy"],
+      "triggers": [
+        "copywriting",
+        "marketing copy",
+        "headlines",
+        "CTAs",
+        "landing page copy"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" or \"CTA copy.\" For email copy, see email-sequence. For popup copy, see popup-cro.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "copy-editing",
+          "email-sequence",
+          "page-cro",
+          "popup-cro"
+        ]
+      }
     },
     {
       "id": "crafting-effective-readmes",
       "name": "Crafting Effective READMEs",
       "category": "documentation",
-      "triggers": ["README", "readme", "project documentation", "repo docs"],
+      "triggers": [
+        "README",
+        "readme",
+        "project documentation",
+        "repo docs"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Use when writing or improving README files. Not all READMEs are the same — provides templates and guidance matched to your audience and project type."
     },
     {
       "id": "daily-meeting-update",
       "name": "Daily Meeting Update",
       "category": "communication",
-      "triggers": ["daily", "standup", "scrum", "meeting update", "status update"],
+      "triggers": [
+        "daily",
+        "standup",
+        "scrum",
+        "meeting update",
+        "status update"
+      ],
       "cli": null,
-      "mcp": null,
+      "mcp": "linear",
       "plugin": null,
-      "source": "softaworks"
-    },
-    {
-      "id": "database-schema-designer",
-      "name": "Database Schema Designer",
-      "category": "backend",
-      "triggers": ["schema", "database design", "ERD", "tables", "SQL schema"],
-      "cli": null,
-      "mcp": null,
-      "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "linear": "optional"
+      },
+      "description": "Interactive daily standup/meeting update generator. Use when user says 'daily', 'standup', 'scrum update', 'status update', 'what did I do yesterday', 'prepare for meeting', 'morning update', or 'team sync'. Pulls activity from GitHub, Jira, and Claude Code session history. Conducts 4-question interview (yesterday, today, blockers, discussion topics) and generates formatted Markdown update."
     },
     {
       "id": "datadog-cli",
       "name": "Datadog CLI",
       "category": "integrations",
-      "triggers": ["datadog", "logs", "metrics", "monitoring", "incident", "observability"],
+      "triggers": [
+        "datadog",
+        "logs",
+        "metrics",
+        "monitoring",
+        "incident",
+        "observability"
+      ],
       "cli": "datadog",
       "mcp": null,
       "plugin": null,
-      "source": "nickmohler"
+      "source": "nickmohler",
+      "toolImportance": {
+        "datadog": "essential"
+      },
+      "description": "Datadog CLI for searching logs, querying metrics, tracing requests, and managing dashboards. Use this when debugging production issues or working with Datadog observability."
     },
     {
       "id": "dependency-updater",
       "name": "Dependency Updater",
       "category": "workflow",
-      "triggers": ["update dependencies", "npm update", "outdated", "upgrade packages"],
+      "triggers": [
+        "update dependencies",
+        "npm update",
+        "outdated",
+        "upgrade packages"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Smart dependency management for any language. Auto-detects project type, applies safe updates automatically, prompts for major versions, diagnoses and fixes dependency issues."
     },
     {
       "id": "design-system-starter",
       "name": "Design System Starter",
       "category": "frontend",
-      "triggers": ["design system", "design tokens", "component library", "style guide"],
+      "triggers": [
+        "design system",
+        "design tokens",
+        "component library",
+        "style guide"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "frontend-ui-plugin",
+        "react-dev-plugin"
+      ],
+      "description": "Create and evolve design systems with design tokens, component architecture, accessibility guidelines, and documentation templates. Ensures consistent, scalable, and accessible UI across products."
     },
     {
       "id": "difficult-workplace-conversations",
       "name": "Difficult Workplace Conversations",
       "category": "communication",
-      "triggers": ["difficult conversation", "conflict", "performance", "tough feedback"],
+      "triggers": [
+        "difficult conversation",
+        "conflict",
+        "performance",
+        "tough feedback"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Structured approach to workplace conflicts, performance discussions, and challenging feedback using preparation-delivery-followup framework. Use when preparing for tough conversations, addressing conflicts, giving critical feedback, or navigating sensitive workplace discussions."
     },
     {
       "id": "docx",
       "name": "DOCX",
       "category": "documentation",
-      "triggers": ["docx", "word", "word document", ".docx"],
+      "triggers": [
+        "docx",
+        "word",
+        "word document",
+        ".docx"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "anthropic"
+      "source": "anthropic",
+      "description": "Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. When Claude needs to work with professional documents (.docx files) for: (1) Creating new documents, (2) Modifying or editing content, (3) Working with tracked changes, (4) Adding comments, or any other document tasks"
     },
     {
       "id": "drizzle-orm",
       "name": "Drizzle ORM",
       "category": "backend",
-      "triggers": ["drizzle", "ORM", "drizzle-orm", "TypeScript ORM", "postgres"],
+      "triggers": [
+        "drizzle",
+        "ORM",
+        "drizzle-orm",
+        "TypeScript ORM",
+        "postgres"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "postgres": "recommended"
+      },
+      "description": "Drizzle ORM for TypeScript. Schema design, migrations, queries, and PostgreSQL integration. Use when working with Drizzle, defining database schemas, or running migrations. Triggers on: 'drizzle', 'database schema', 'migration', 'ORM', 'drizzle-kit'."
     },
     {
       "id": "email-sequence",
       "name": "Email Sequence",
       "category": "marketing",
-      "triggers": ["email sequence", "drip campaign", "email flow", "nurture sequence"],
+      "triggers": [
+        "email sequence",
+        "drip campaign",
+        "email flow",
+        "nurture sequence"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions \"email sequence,\" \"drip campaign,\" \"nurture sequence,\" \"onboarding emails,\" \"welcome sequence,\" \"re-engagement emails,\" \"email automation,\" or \"lifecycle emails.\" For in-app onboarding, see onboarding-cro.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "copywriting",
+          "onboarding-cro",
+          "popup-cro"
+        ]
+      }
     },
     {
       "id": "excalidraw",
       "name": "Excalidraw",
       "category": "documentation",
-      "triggers": ["excalidraw", "whiteboard", "diagram", "sketch", "flowchart"],
+      "triggers": [
+        "excalidraw",
+        "whiteboard",
+        "diagram",
+        "sketch",
+        "flowchart"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "anthropic"
+      "source": "anthropic",
+      "description": "Use when working with *.excalidraw or *.excalidraw.json files, user mentions diagrams/flowcharts, or requests architecture visualization - delegates all Excalidraw operations to subagents to prevent context exhaustion from verbose JSON (single files: 4k-22k tokens, can exceed read limits)"
     },
     {
       "id": "feedback-mastery",
       "name": "Feedback Mastery",
       "category": "communication",
-      "triggers": ["feedback", "constructive feedback", "giving feedback", "receiving feedback"],
+      "triggers": [
+        "feedback",
+        "constructive feedback",
+        "giving feedback",
+        "receiving feedback"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Navigate difficult conversations and deliver constructive feedback using structured frameworks. Covers the Preparation-Delivery-Follow-up model and Situation-Behavior-Impact (SBI) feedback technique. Use when preparing for difficult conversations, giving feedback, or managing conflicts."
     },
     {
       "id": "firebase-guide",
       "name": "Firebase Guide",
       "category": "backend",
-      "triggers": ["firebase", "firestore", "firebase auth", "firebase hosting", "cloud functions"],
+      "triggers": [
+        "firebase",
+        "firestore",
+        "firebase auth",
+        "firebase hosting",
+        "cloud functions"
+      ],
       "cli": "firebase",
       "mcp": null,
       "plugin": null,
-      "source": "nickmohler"
+      "source": "nickmohler",
+      "toolImportance": {
+        "firebase": "essential"
+      },
+      "description": "Firebase using Firebase CLI. Firestore, Auth, Hosting, Functions. Use when setting up Firebase or working with Google's backend services. Triggers on: 'firebase', 'firestore', 'firebase auth', 'firebase hosting', 'cloud functions'."
     },
     {
       "id": "form-cro",
       "name": "Form CRO",
       "category": "cro",
-      "triggers": ["form optimization", "form conversion", "form UX", "form fields"],
+      "triggers": [
+        "form optimization",
+        "form conversion",
+        "form UX",
+        "form fields"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to optimize any form that is NOT signup/registration — including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" or \"contact form.\" For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "page-cro",
+          "popup-cro",
+          "signup-flow-cro"
+        ]
+      }
     },
     {
       "id": "free-tool-strategy",
       "name": "Free Tool Strategy",
       "category": "marketing",
-      "triggers": ["free tool", "lead magnet", "freemium", "free product"],
+      "triggers": [
+        "free tool",
+        "lead magnet",
+        "freemium",
+        "free product"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or brand awareness. Also use when the user mentions \"engineering as marketing,\" \"free tool,\" \"marketing tool,\" \"calculator,\" \"generator,\" \"interactive tool,\" \"lead gen tool,\" \"build a tool for leads,\" or \"free resource.\" This skill bridges engineering and marketing — useful for founders and technical marketers.",
+      "dependencies": {
+        "recommended": [
+          "analytics-tracking",
+          "email-sequence",
+          "page-cro",
+          "programmatic-seo",
+          "seo-audit"
+        ]
+      }
     },
     {
       "id": "frontend-design",
       "name": "Frontend Design",
       "category": "frontend",
-      "triggers": ["frontend architecture", "component design", "UI architecture"],
+      "triggers": [
+        "frontend architecture",
+        "component design",
+        "UI architecture"
+      ],
       "cli": null,
       "mcp": "context7",
       "plugin": "frontend-design-plugin",
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "react-dev-plugin",
+        "frontend-ui-plugin"
+      ],
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, mockups, prototypes, or when styling/beautifying any web UI). Generates creative, polished, accessible code and UI design that avoids generic AI aesthetics."
     },
     {
       "id": "frontend-to-backend-requirements",
       "name": "Frontend to Backend Requirements",
       "category": "documentation",
-      "triggers": ["frontend requirements", "API requirements", "backend spec", "data needs"],
+      "triggers": [
+        "frontend requirements",
+        "API requirements",
+        "backend spec",
+        "data needs"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
-    },
-    {
-      "id": "github-workflow",
-      "name": "GitHub Workflow",
-      "category": "workflow",
-      "triggers": ["github", "gh", "create repo", "push to remote", "PR", "release", "tag"],
-      "cli": "gh",
-      "mcp": null,
-      "plugin": null,
-      "source": "nickmohler"
+      "source": "softaworks",
+      "description": "Document frontend data needs for backend developers. Use when frontend needs to communicate API requirements to backend, or user says 'backend requirements', 'what data do I need', 'API requirements', or is describing data needs for a UI."
     },
     {
       "id": "google-cloud-setup",
       "name": "Google Cloud Setup",
       "category": "deployment",
-      "triggers": ["gcloud", "google cloud", "cloud run", "GCP", "cloud functions"],
+      "triggers": [
+        "gcloud",
+        "google cloud",
+        "cloud run",
+        "GCP",
+        "cloud functions"
+      ],
       "cli": "gcloud",
       "mcp": null,
       "plugin": null,
-      "source": "nickmohler"
+      "source": "nickmohler",
+      "toolImportance": {
+        "gcloud": "essential"
+      },
+      "description": "Google Cloud using gcloud CLI. Cloud Run, Firebase Hosting, Cloud Functions. Use when deploying to GCP or configuring Google Cloud services. Triggers on: 'gcloud', 'google cloud', 'cloud run', 'GCP', 'google cloud functions'."
     },
     {
       "id": "humanizer",
       "name": "Humanizer",
       "category": "utilities",
-      "triggers": ["humanize", "AI detection", "natural writing", "human-like"],
+      "triggers": [
+        "humanize",
+        "AI detection",
+        "natural writing",
+        "human-like"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Remove signs of AI-generated writing from text. Use when editing or reviewing\ntext to make it sound more natural and human-written. Based on Wikipedia's\ncomprehensive \"Signs of AI writing\" guide. Detects and fixes patterns including:\ninflated symbolism, promotional language, superficial -ing analyses, vague\nattributions, em dash overuse, rule of three, AI vocabulary words, negative\nparallelisms, and excessive conjunctive phrases.\n\nCredits: Original skill by @blader - https://github.com/blader/humanizer\n"
     },
     {
       "id": "jira",
       "name": "Jira",
       "category": "integrations",
-      "triggers": ["jira", "ticket", "issue", "sprint", "PROJ-123"],
+      "triggers": [
+        "jira",
+        "ticket",
+        "issue",
+        "sprint",
+        "PROJ-123"
+      ],
       "cli": "jira",
       "mcp": "atlassian",
       "plugin": null,
-      "source": "nickmohler"
+      "source": "nickmohler",
+      "toolImportance": {
+        "jira": "essential",
+        "atlassian": "essential"
+      },
+      "description": "Use when the user mentions Jira issues (e.g., \"PROJ-123\"), asks about tickets, wants to create/view/update issues, check sprint status, or manage their Jira workflow. Triggers on keywords like \"jira\", \"issue\", \"ticket\", \"sprint\", \"backlog\", or issue key patterns."
     },
     {
       "id": "launch-strategy",
       "name": "Launch Strategy",
       "category": "marketing",
-      "triggers": ["launch", "product launch", "release strategy", "go-to-market"],
+      "triggers": [
+        "launch",
+        "product launch",
+        "release strategy",
+        "go-to-market"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' or 'product update.' This skill covers phased launches, channel strategy, and ongoing launch momentum.",
+      "dependencies": {
+        "recommended": [
+          "email-sequence",
+          "marketing-psychology",
+          "page-cro",
+          "programmatic-seo"
+        ]
+      }
     },
     {
       "id": "marketing-psychology",
       "name": "Marketing Psychology",
       "category": "marketing",
-      "triggers": ["psychology", "behavioral", "persuasion", "mental models", "consumer behavior"],
+      "triggers": [
+        "psychology",
+        "behavioral",
+        "persuasion",
+        "mental models",
+        "consumer behavior"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "copywriting",
+          "page-cro",
+          "popup-cro"
+        ]
+      }
     },
     {
       "id": "marp-slide",
       "name": "Marp Slide",
       "category": "design",
-      "triggers": ["marp", "markdown slides", "presentation", "slide deck"],
+      "triggers": [
+        "marp",
+        "markdown slides",
+        "presentation",
+        "slide deck"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Create professional Marp presentation slides with 7 beautiful themes (default, minimal, colorful, dark, gradient, tech, business). Use when users request slide creation, presentations, or Marp documents. Supports custom themes, image layouts, and \"make it look good\" requests with automatic quality improvements."
     },
     {
       "id": "mcp-builder",
       "name": "MCP Builder",
       "category": "architecture",
-      "triggers": ["MCP", "MCP server", "model context protocol", "build MCP"],
+      "triggers": [
+        "MCP",
+        "MCP server",
+        "model context protocol",
+        "build MCP"
+      ],
       "cli": null,
       "mcp": "context7",
       "plugin": "mcp-builder-plugin",
-      "source": "softaworks"
-    },
-    {
-      "id": "meme-factory",
-      "name": "Meme Factory",
-      "category": "design",
-      "triggers": ["meme", "memes", "memegen", "humor"],
-      "cli": null,
-      "mcp": null,
-      "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK)."
     },
     {
       "id": "mermaid-diagrams",
       "name": "Mermaid Diagrams",
       "category": "documentation",
-      "triggers": ["mermaid", "diagram", "flowchart", "sequence diagram", "class diagram"],
+      "triggers": [
+        "mermaid",
+        "diagram",
+        "flowchart",
+        "sequence diagram",
+        "class diagram"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Comprehensive guide for creating software diagrams using Mermaid syntax. Use when users need to create, visualize, or document software through diagrams including class diagrams (domain modeling, object-oriented design), sequence diagrams (application flows, API interactions, code execution), flowcharts (processes, algorithms, user journeys), entity relationship diagrams (database schemas), C4 architecture diagrams (system context, containers, components), state diagrams, git graphs, pie charts, gantt charts, or any other diagram type. Triggers include requests to \"diagram\", \"visualize\", \"model\", \"map out\", \"show the flow\", or when explaining system architecture, database design, code structure, or user/application flows."
     },
     {
       "id": "netlify-deployment",
       "name": "Netlify Deployment",
       "category": "deployment",
-      "triggers": ["netlify", "netlify deploy", "netlify functions", "netlify env"],
+      "triggers": [
+        "netlify",
+        "netlify deploy",
+        "netlify functions",
+        "netlify env"
+      ],
       "cli": "netlify",
       "mcp": null,
       "plugin": null,
-      "source": "nickmohler"
+      "source": "nickmohler",
+      "toolImportance": {
+        "netlify": "essential"
+      },
+      "description": "Netlify deployment using Netlify CLI. Deploy, environment variables, functions. Use when deploying to Netlify. Triggers on: 'netlify', 'netlify deploy', 'netlify functions', 'netlify env'."
     },
     {
       "id": "oauth-setup",
       "name": "OAuth Setup",
       "category": "backend",
-      "triggers": ["OAuth", "social login", "Google auth", "GitHub auth", "NextAuth"],
+      "triggers": [
+        "OAuth",
+        "social login",
+        "Google auth",
+        "GitHub auth",
+        "NextAuth"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "OAuth provider configuration. Google, GitHub, Discord with NextAuth.js. Use when setting up social login or OAuth authentication. Triggers on: 'oauth', 'google login', 'github login', 'social auth', 'NextAuth', 'social login'."
     },
     {
       "id": "onboarding-cro",
       "name": "Onboarding CRO",
       "category": "cro",
-      "triggers": ["onboarding", "user activation", "first-run", "time-to-value"],
+      "triggers": [
+        "onboarding",
+        "user activation",
+        "first-run",
+        "time-to-value"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions \"onboarding flow,\" \"activation rate,\" \"user activation,\" \"first-run experience,\" \"empty states,\" \"onboarding checklist,\" \"aha moment,\" or \"new user experience.\" For signup/registration optimization, see signup-flow-cro. For ongoing email sequences, see email-sequence.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "email-sequence",
+          "paywall-upgrade-cro",
+          "signup-flow-cro"
+        ]
+      }
     },
     {
       "id": "openapi-to-typescript",
       "name": "OpenAPI to TypeScript",
       "category": "backend",
-      "triggers": ["OpenAPI", "swagger", "API types", "TypeScript types", "codegen"],
+      "triggers": [
+        "OpenAPI",
+        "swagger",
+        "API types",
+        "TypeScript types",
+        "codegen"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Converts OpenAPI 3.0 JSON/YAML to TypeScript interfaces and type guards. This skill should be used when the user asks to generate types from OpenAPI, convert schema to TS, create API interfaces, or generate TypeScript types from an API specification."
     },
     {
       "id": "page-cro",
       "name": "Page CRO",
       "category": "cro",
-      "triggers": ["landing page", "page optimization", "conversion", "page CRO"],
+      "triggers": [
+        "landing page",
+        "page optimization",
+        "conversion",
+        "page CRO"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to optimize, improve, or increase conversions on any marketing page — including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says \"CRO,\" \"conversion rate optimization,\" \"this page isn't converting,\" \"improve conversions,\" or \"why isn't this page working.\" For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "copywriting",
+          "form-cro",
+          "popup-cro",
+          "signup-flow-cro"
+        ]
+      }
     },
     {
       "id": "paid-ads",
       "name": "Paid Ads",
       "category": "marketing",
-      "triggers": ["paid ads", "Google Ads", "Meta ads", "PPC", "advertising"],
+      "triggers": [
+        "paid ads",
+        "Google Ads",
+        "Meta ads",
+        "PPC",
+        "advertising"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "analytics-tracking",
+          "copywriting",
+          "page-cro"
+        ]
+      }
     },
     {
       "id": "paywall-upgrade-cro",
       "name": "Paywall Upgrade CRO",
       "category": "cro",
-      "triggers": ["paywall", "upgrade", "upsell", "pricing modal", "feature gate"],
+      "triggers": [
+        "paywall",
+        "upgrade",
+        "upsell",
+        "pricing modal",
+        "feature gate"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions \"paywall,\" \"upgrade screen,\" \"upgrade modal,\" \"upsell,\" \"feature gate,\" \"convert free to paid,\" \"freemium conversion,\" \"trial expiration screen,\" \"limit reached screen,\" \"plan upgrade prompt,\" or \"in-app pricing.\" Distinct from public pricing pages (see page-cro) — this skill focuses on in-product upgrade moments where the user has already experienced value.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "analytics-tracking",
+          "onboarding-cro",
+          "page-cro"
+        ]
+      }
     },
     {
       "id": "pdf",
       "name": "PDF",
       "category": "documentation",
-      "triggers": ["pdf", "PDF", "extract pdf", "create pdf", "merge pdf"],
+      "triggers": [
+        "pdf",
+        "PDF",
+        "extract pdf",
+        "create pdf",
+        "merge pdf"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "anthropic"
+      "source": "anthropic",
+      "description": "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale."
     },
     {
       "id": "perplexity",
       "name": "Perplexity",
       "category": "integrations",
-      "triggers": ["search", "find", "look up", "research", "what's the latest"],
+      "triggers": [
+        "search",
+        "find",
+        "look up",
+        "research",
+        "what's the latest"
+      ],
       "cli": null,
       "mcp": "perplexity",
       "plugin": null,
-      "source": "nickmohler"
+      "source": "nickmohler",
+      "toolImportance": {
+        "perplexity": "essential"
+      },
+      "description": "Web search and research using Perplexity AI. Use when user says \"search\", \"find\", \"look up\", \"ask\", \"research\", or \"what's the latest\" for generic queries. NOT for library/framework docs (use Context7) or workspace questions."
     },
     {
       "id": "plugin-forge",
       "name": "Plugin Forge",
       "category": "architecture",
-      "triggers": ["plugin", "create plugin", "plugin manifest", "marketplace"],
+      "triggers": [
+        "plugin",
+        "create plugin",
+        "plugin manifest",
+        "marketplace"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "relatedPlugins": [
+        "mcp-builder-plugin"
+      ],
+      "description": "Create and manage Claude Code plugins with proper structure, manifests, and marketplace integration. Use when creating plugins for a marketplace, adding plugin components (commands, agents, hooks), bumping plugin versions, or working with plugin.json/marketplace.json manifests."
     },
     {
       "id": "popup-cro",
       "name": "Popup CRO",
       "category": "cro",
-      "triggers": ["popup", "modal", "overlay", "slide-in", "banner"],
+      "triggers": [
+        "popup",
+        "modal",
+        "overlay",
+        "slide-in",
+        "banner"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions \"exit intent,\" \"popup conversions,\" \"modal optimization,\" \"lead capture popup,\" \"email popup,\" \"announcement banner,\" or \"overlay.\" For forms outside of popups, see form-cro. For general page conversion optimization, see page-cro.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "email-sequence",
+          "form-cro",
+          "page-cro"
+        ]
+      }
     },
     {
       "id": "pptx",
       "name": "PPTX",
       "category": "documentation",
-      "triggers": ["pptx", "powerpoint", "presentation", ".pptx", "slides"],
+      "triggers": [
+        "pptx",
+        "powerpoint",
+        "presentation",
+        ".pptx",
+        "slides"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "anthropic"
+      "source": "anthropic",
+      "description": "Presentation creation, editing, and analysis. When Claude needs to work with presentations (.pptx files) for: (1) Creating new presentations, (2) Modifying or editing content, (3) Working with layouts, (4) Adding comments or speaker notes, or any other presentation tasks"
     },
     {
       "id": "pricing-strategy",
       "name": "Pricing Strategy",
       "category": "marketing",
-      "triggers": ["pricing", "pricing model", "monetization", "price point"],
+      "triggers": [
+        "pricing",
+        "pricing model",
+        "monetization",
+        "price point"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' or 'monetization.' This skill covers pricing research, tier structure, and packaging strategy.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "analytics-tracking",
+          "copywriting",
+          "marketing-psychology",
+          "page-cro"
+        ]
+      }
     },
     {
       "id": "professional-communication",
       "name": "Professional Communication",
       "category": "communication",
-      "triggers": ["professional email", "business writing", "team messaging", "formal communication"],
+      "triggers": [
+        "professional email",
+        "business writing",
+        "team messaging",
+        "formal communication"
+      ],
       "cli": null,
-      "mcp": null,
+      "mcp": "slack",
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "slack": "optional"
+      },
+      "description": "Guide technical communication for software developers. Covers email structure, team messaging etiquette, meeting agendas, and adapting messages for technical vs non-technical audiences. Use when drafting professional messages, preparing meeting communications, or improving written communication."
     },
     {
       "id": "programmatic-seo",
       "name": "Programmatic SEO",
       "category": "marketing",
-      "triggers": ["programmatic SEO", "pSEO", "template pages", "automated SEO"],
+      "triggers": [
+        "programmatic SEO",
+        "pSEO",
+        "template pages",
+        "automated SEO"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions \"programmatic SEO,\" \"template pages,\" \"pages at scale,\" \"directory pages,\" \"location pages,\" \"[keyword] + [city] pages,\" \"comparison pages,\" \"integration pages,\" or \"building many pages for SEO.\" For auditing existing SEO issues, see seo-audit.",
+      "dependencies": {
+        "recommended": [
+          "analytics-tracking",
+          "copywriting",
+          "schema-markup",
+          "seo-audit"
+        ]
+      }
     },
     {
       "id": "qa-test-planner",
       "name": "QA Test Planner",
       "category": "workflow",
-      "triggers": ["test plan", "QA", "test cases", "regression", "bug report"],
+      "triggers": [
+        "test plan",
+        "QA",
+        "test cases",
+        "regression",
+        "bug report"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
-    },
-    {
-      "id": "react-best-practices",
-      "name": "React Best Practices",
-      "category": "frontend",
-      "triggers": ["react patterns", "react best practices", "react performance"],
-      "cli": null,
-      "mcp": null,
-      "plugin": null,
-      "source": "vercel"
+      "source": "softaworks",
+      "description": "Generate comprehensive test plans, manual test cases, regression test suites, and bug reports for QA engineers. Includes Figma MCP integration for design validation."
     },
     {
       "id": "react-dev",
       "name": "React Dev",
       "category": "frontend",
-      "triggers": ["react", "react component", "react development", "TypeScript react"],
+      "triggers": [
+        "react",
+        "react component",
+        "react development",
+        "TypeScript react"
+      ],
       "cli": null,
       "mcp": "context7",
       "plugin": "react-dev-plugin",
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "frontend-design-plugin",
+        "frontend-ui-plugin",
+        "webapp-testing-plugin"
+      ],
+      "description": "This skill should be used when building React components with TypeScript, typing hooks, handling events, or when React TypeScript, React 19, Server Components are mentioned. Covers type-safe patterns for React 18-19 including generic components, proper event typing, and routing integration (TanStack Router, React Router)."
     },
     {
       "id": "recommend-skills",
       "name": "Recommend Skills",
       "category": "utilities",
-      "triggers": ["recommend skills", "which skills", "skill suggestions"],
+      "triggers": [
+        "recommend skills",
+        "which skills",
+        "skill suggestions"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
@@ -811,147 +1773,263 @@
       "id": "requirements-clarity",
       "name": "Requirements Clarity",
       "category": "workflow",
-      "triggers": ["requirements", "clarify requirements", "ambiguous", "spec"],
+      "triggers": [
+        "requirements",
+        "clarify requirements",
+        "ambiguous",
+        "spec"
+      ],
       "cli": null,
-      "mcp": null,
+      "mcp": "linear",
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "linear": "optional"
+      },
+      "description": "Clarify ambiguous requirements through focused dialogue before implementation. Use when requirements are unclear, features are complex (>2 days), or involve cross-team coordination. Ask two core questions - Why? (YAGNI check) and Simpler? (KISS check) - to ensure clarity before coding."
     },
     {
       "id": "saas-starter-setup",
       "name": "SaaS Starter Setup",
       "category": "backend",
-      "triggers": ["SaaS starter", "Next.js starter", "boilerplate", "scaffold"],
+      "triggers": [
+        "SaaS starter",
+        "Next.js starter",
+        "boilerplate",
+        "scaffold"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "postgres": "recommended",
+        "supabase": "optional"
+      },
+      "description": "Quick SaaS setup using the official Next.js SaaS Starter (15k+ stars). Teams, roles, Stripe, auth — all pre-built. Clone and customize in minutes. Triggers on: 'saas starter', 'start saas', 'new saas project', 'saas template', 'quick saas', 'nextjs saas'."
     },
     {
       "id": "saas-from-scratch",
       "name": "SaaS From Scratch",
       "category": "backend",
-      "triggers": ["build saas from scratch", "custom saas", "learn saas stack", "saas tutorial", "manual saas setup"],
+      "triggers": [
+        "build saas from scratch",
+        "custom saas",
+        "learn saas stack",
+        "saas tutorial",
+        "manual saas setup"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "nickmohler"
+      "source": "nickmohler",
+      "toolImportance": {
+        "postgres": "recommended",
+        "stripe": "optional"
+      },
+      "description": "Build a SaaS from scratch, piece by piece. Next.js + PostgreSQL + Drizzle + Stripe + Vercel. Use when you want full control over your stack or want to learn how everything connects. Triggers on: 'build saas from scratch', 'custom saas', 'learn saas stack', 'saas tutorial', 'manual saas setup'."
     },
     {
       "id": "schema-markup",
       "name": "Schema Markup",
       "category": "marketing",
-      "triggers": ["schema", "structured data", "JSON-LD", "rich snippets"],
+      "triggers": [
+        "schema",
+        "structured data",
+        "JSON-LD",
+        "rich snippets"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user mentions \"schema markup,\" \"structured data,\" \"JSON-LD,\" \"rich snippets,\" \"schema.org,\" \"FAQ schema,\" \"product schema,\" \"review schema,\" or \"breadcrumb schema.\" For broader SEO issues, see seo-audit.",
+      "dependencies": {
+        "recommended": [
+          "analytics-tracking",
+          "programmatic-seo",
+          "seo-audit"
+        ]
+      }
     },
     {
       "id": "seo-audit",
       "name": "SEO Audit",
       "category": "marketing",
-      "triggers": ["SEO audit", "SEO review", "SEO analysis", "search optimization"],
+      "triggers": [
+        "SEO audit",
+        "SEO review",
+        "SEO analysis",
+        "search optimization"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions \"SEO audit,\" \"technical SEO,\" \"why am I not ranking,\" \"SEO issues,\" \"on-page SEO,\" \"meta tags review,\" or \"SEO health check.\" For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup.",
+      "dependencies": {
+        "recommended": [
+          "analytics-tracking",
+          "page-cro",
+          "programmatic-seo",
+          "schema-markup"
+        ]
+      }
     },
     {
       "id": "session-handoff",
       "name": "Session Handoff",
       "category": "workflow",
-      "triggers": ["handoff", "session transfer", "context transfer", "resume tomorrow"],
+      "triggers": [
+        "handoff",
+        "session transfer",
+        "context transfer",
+        "resume tomorrow"
+      ],
       "cli": null,
-      "mcp": null,
+      "mcp": "notion",
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "notion": "optional"
+      },
+      "description": "Creates comprehensive handoff documents for seamless AI agent session transfers. Triggered when: (1) user requests handoff/memory/context save, (2) context window approaches capacity, (3) major task milestone completed, (4) work session ending, (5) user says 'save state', 'create handoff', 'I need to pause', 'context is getting full', (6) resuming work with 'load handoff', 'resume from', 'continue where we left off'. Proactively suggests handoffs after substantial work (multiple file edits, complex debugging, architecture decisions). Solves long-running agent context exhaustion by enabling fresh agents to continue with zero ambiguity."
     },
     {
       "id": "signup-flow-cro",
       "name": "Signup Flow CRO",
       "category": "cro",
-      "triggers": ["signup", "registration", "account creation", "trial activation"],
+      "triggers": [
+        "signup",
+        "registration",
+        "account creation",
+        "trial activation"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "coreyhaines"
+      "source": "coreyhaines",
+      "description": "When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions \"signup conversions,\" \"registration friction,\" \"signup form optimization,\" \"free trial signup,\" \"reduce signup dropoff,\" or \"account creation flow.\" For post-signup onboarding, see onboarding-cro. For lead capture forms (not account creation), see form-cro.",
+      "dependencies": {
+        "recommended": [
+          "ab-test-setup",
+          "form-cro",
+          "onboarding-cro",
+          "page-cro"
+        ]
+      }
     },
     {
       "id": "skill-creator",
       "name": "Skill Creator",
       "category": "architecture",
-      "triggers": ["create skill", "new skill", "skill template"],
+      "triggers": [
+        "create skill",
+        "new skill",
+        "skill template"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations."
     },
     {
       "id": "skill-judge",
       "name": "Skill Judge",
       "category": "architecture",
-      "triggers": ["evaluate skill", "skill quality", "skill review"],
+      "triggers": [
+        "evaluate skill",
+        "skill quality",
+        "skill review"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Evaluate Agent Skill design quality against official specifications and best practices. Use when reviewing, auditing, or improving SKILL.md files and skill packages. Provides multi-dimensional scoring and actionable improvement suggestions."
     },
     {
       "id": "skill-safety-check",
       "name": "Skill Safety Check",
       "category": "utilities",
-      "triggers": ["skill safety", "verify skill", "dangerous patterns"],
+      "triggers": [
+        "skill safety",
+        "verify skill",
+        "dangerous patterns"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Verify skill safety before adoption. Scans for dangerous patterns, checks source reputation. Use when evaluating new skills or before adding community skills. Triggers on: 'check skill safety', 'verify skill', 'is this skill safe', 'audit skill'."
     },
     {
       "id": "stripe-integration",
       "name": "Stripe Integration",
       "category": "payments",
-      "triggers": ["stripe", "payments", "checkout", "subscription", "billing"],
+      "triggers": [
+        "stripe",
+        "payments",
+        "checkout",
+        "subscription",
+        "billing"
+      ],
       "cli": "stripe",
       "mcp": null,
       "plugin": null,
-      "source": "nickmohler"
+      "source": "nickmohler",
+      "toolImportance": {
+        "stripe": "essential"
+      },
+      "description": "Stripe payments using Stripe CLI. Setup, products, checkout, subscriptions, webhooks. Use when integrating payments, setting up Stripe, or handling subscriptions. Triggers on: 'stripe', 'payments', 'checkout', 'subscription', 'billing', 'payment integration'."
     },
     {
       "id": "supabase-guide",
       "name": "Supabase Guide",
       "category": "backend",
-      "triggers": ["supabase", "database", "auth", "realtime", "edge functions"],
+      "triggers": [
+        "supabase",
+        "database",
+        "auth",
+        "realtime",
+        "edge functions"
+      ],
       "cli": "supabase",
       "mcp": null,
       "plugin": null,
-      "source": "nickmohler"
-    },
-    {
-      "id": "systematic-debugging",
-      "name": "Systematic Debugging",
-      "category": "workflow",
-      "triggers": ["debug", "debugging", "root cause", "bug", "investigate"],
-      "cli": null,
-      "mcp": null,
-      "plugin": null,
-      "source": "obra"
+      "source": "nickmohler",
+      "toolImportance": {
+        "supabase": "essential",
+        "postgres": "recommended"
+      },
+      "description": "Supabase backend using Supabase CLI. Database, auth, realtime, edge functions. Use when setting up Supabase, configuring auth, or managing database. Triggers on: 'supabase', 'backend', 'database', 'auth', 'realtime', 'edge functions'."
     },
     {
       "id": "theme-factory",
       "name": "Theme Factory",
       "category": "design",
-      "triggers": ["theme", "styling", "color scheme", "dark mode"],
+      "triggers": [
+        "theme",
+        "styling",
+        "color scheme",
+        "dark mode"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "anthropic"
+      "source": "anthropic",
+      "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly."
     },
     {
       "id": "update-skills-index",
       "name": "Update Skills Index",
       "category": "utilities",
-      "triggers": ["update index", "sync skills", "skills maintenance"],
+      "triggers": [
+        "update index",
+        "sync skills",
+        "skills maintenance"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
@@ -961,63 +2039,2999 @@
       "id": "vercel-deployment",
       "name": "Vercel Deployment",
       "category": "deployment",
-      "triggers": ["vercel", "deploy", "preview deployment", "vercel env", "vercel domains"],
+      "triggers": [
+        "vercel",
+        "deploy",
+        "preview deployment",
+        "vercel env",
+        "vercel domains"
+      ],
       "cli": "vercel",
       "mcp": null,
       "plugin": null,
-      "source": "nickmohler"
+      "source": "nickmohler",
+      "toolImportance": {
+        "vercel": "essential"
+      },
+      "description": "Vercel deployment using Vercel CLI. Deploy, preview, environment variables, domains. Use when deploying to Vercel or configuring Vercel projects. Triggers on: 'vercel', 'deploy', 'preview deployment', 'vercel env', 'vercel domains'."
     },
     {
       "id": "video-generator",
       "name": "Video Generator",
       "category": "design",
-      "triggers": ["video", "remotion", "programmatic video", "video generation"],
+      "triggers": [
+        "video",
+        "remotion",
+        "programmatic video",
+        "video generation"
+      ],
       "cli": null,
       "mcp": "remotion",
       "plugin": "video-generator-plugin",
-      "source": "anthropic"
-    },
-    {
-      "id": "web-design-guidelines",
-      "name": "Web Design Guidelines",
-      "category": "frontend",
-      "triggers": ["UI review", "accessibility", "web guidelines", "design review"],
-      "cli": null,
-      "mcp": null,
-      "plugin": null,
-      "source": "vercel"
+      "source": "anthropic",
+      "toolImportance": {
+        "remotion": "essential"
+      },
+      "description": "Create videos programmatically using Remotion. Use when the user asks to generate videos, create video content, make animated clips, or build promotional videos."
     },
     {
       "id": "webapp-testing",
       "name": "Webapp Testing",
       "category": "workflow",
-      "triggers": ["E2E", "playwright", "browser testing", "automation"],
+      "triggers": [
+        "E2E",
+        "playwright",
+        "browser testing",
+        "automation"
+      ],
       "cli": null,
       "mcp": "playwright",
       "plugin": "webapp-testing-plugin",
-      "source": "softaworks"
+      "source": "softaworks",
+      "toolImportance": {
+        "playwright": "essential"
+      },
+      "relatedPlugins": [
+        "react-dev-plugin"
+      ],
+      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs."
     },
     {
       "id": "writing-clearly-and-concisely",
       "name": "Writing Clearly and Concisely",
       "category": "documentation",
-      "triggers": ["clear writing", "concise", "prose", "documentation writing"],
+      "triggers": [
+        "clear writing",
+        "concise",
+        "prose",
+        "documentation writing"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "softaworks"
+      "source": "softaworks",
+      "description": "Use when writing prose humans will read—documentation, commit messages, error messages, explanations, reports, or UI text. Applies Strunk's timeless rules for clearer, stronger, more professional writing."
     },
     {
       "id": "xlsx",
       "name": "XLSX",
       "category": "documentation",
-      "triggers": ["xlsx", "excel", "spreadsheet", ".xlsx", "workbook"],
+      "triggers": [
+        "xlsx",
+        "excel",
+        "spreadsheet",
+        ".xlsx",
+        "workbook"
+      ],
       "cli": null,
       "mcp": null,
       "plugin": null,
-      "source": "anthropic"
+      "source": "anthropic",
+      "description": "Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization. When Claude needs to work with spreadsheets (.xlsx, .xlsm, .csv, .tsv, etc) for: (1) Creating new spreadsheets with formulas and formatting, (2) Reading or analyzing data, (3) Modify existing spreadsheets while preserving formulas, (4) Data analysis and visualization in spreadsheets, or (5) Recalculating formulas"
+    },
+    {
+      "id": "companion-plugin-router",
+      "name": "Companion Plugin Router",
+      "category": "utilities",
+      "triggers": [
+        "CRM",
+        "sales pipeline",
+        "deals",
+        "Salesforce",
+        "support tickets",
+        "helpdesk",
+        "Intercom",
+        "contract review",
+        "NDA",
+        "compliance",
+        "legal analysis",
+        "financial analysis",
+        "budget",
+        "forecast",
+        "journal entries",
+        "enterprise search",
+        "knowledge base",
+        "genomics",
+        "lab protocols"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "nickmohler",
+      "description": "When the user needs help with sales CRM, pipelines, deals, outreach, Salesforce, support tickets, helpdesk, Intercom, contract review, NDA, compliance, legal analysis, financial analysis, budgets, forecasts, journal entries, reconciliation, enterprise document search, internal knowledge base, genomics, lab protocols, biology research, or Cowork plugin management. These are domains NOT covered by Rising Tides skills."
+    },
+    {
+      "id": "angular-architect",
+      "name": "Angular Architect",
+      "category": "frontend",
+      "triggers": [
+        "Angular",
+        "Angular 17",
+        "standalone components",
+        "signals",
+        "RxJS",
+        "NgRx",
+        "Angular performance",
+        "Angular routing",
+        "Angular testing"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "webapp-testing-plugin"
+      ],
+      "description": "Use when building Angular 17+ applications with standalone components or signals. Invoke for enterprise apps, RxJS patterns, NgRx state management, performance optimization, advanced routing.",
+      "dependencies": {
+        "recommended": [
+          "test-master",
+          "typescript-pro"
+        ]
+      }
+    },
+    {
+      "id": "api-designer",
+      "name": "API Designer",
+      "category": "backend",
+      "triggers": [
+        "API design",
+        "REST API",
+        "OpenAPI",
+        "API specification",
+        "API architecture",
+        "resource modeling",
+        "API versioning",
+        "GraphQL schema",
+        "API documentation"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when designing REST or GraphQL APIs, creating OpenAPI specifications, or planning API architecture. Invoke for resource modeling, versioning strategies, pagination patterns, error handling standards.",
+      "dependencies": {
+        "recommended": [
+          "fastapi-expert",
+          "nestjs-expert",
+          "spring-boot-engineer"
+        ]
+      }
+    },
+    {
+      "id": "architecture-designer",
+      "name": "Architecture Designer",
+      "category": "architecture",
+      "triggers": [
+        "architecture",
+        "system design",
+        "design pattern",
+        "microservices",
+        "scalability",
+        "ADR",
+        "technical design",
+        "infrastructure"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "description": "Use when designing new system architecture, reviewing existing designs, or making architectural decisions. Invoke for system design, architecture review, design patterns, ADRs, scalability planning.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "fullstack-guardian"
+        ]
+      }
+    },
+    {
+      "id": "aws-cost-optimization",
+      "name": "AWS Cost Optimization",
+      "category": "deployment",
+      "triggers": [
+        "aws cost optimization",
+        "aws",
+        "cost",
+        "optimization"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "description": "Use when finding unused AWS resources, analyzing Reserved Instance opportunities, detecting cost anomalies, rightsizing instances, evaluating Spot instances, or implementing FinOps practices. Invoke for monthly cost reviews, commitment purchase analysis, instance generation migration, and cloud financial operations."
+    },
+    {
+      "id": "chaos-engineer",
+      "name": "Chaos Engineer",
+      "category": "devops",
+      "triggers": [
+        "chaos engineering",
+        "resilience testing",
+        "failure injection",
+        "game day",
+        "blast radius",
+        "chaos experiment",
+        "fault injection",
+        "Chaos Monkey",
+        "Litmus Chaos",
+        "antifragile"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "description": "Use when designing chaos experiments, implementing failure injection frameworks, or conducting game day exercises. Invoke for chaos experiments, resilience testing, blast radius control, game days, antifragile systems.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "kubernetes-specialist"
+        ]
+      }
+    },
+    {
+      "id": "chrome-extension-troubleshooting",
+      "name": "Chrome Extension Troubleshooting",
+      "category": "workflow",
+      "triggers": [
+        "chrome extension troubleshooting",
+        "chrome",
+        "extension",
+        "troubleshooting"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "chriswiles",
+      "toolImportance": {
+        "claude-in-chrome": "recommended"
+      },
+      "relatedPlugins": [
+        "browser-automation-plugin"
+      ],
+      "description": "Use when Claude in Chrome MCP extension tools fail or behave erratically. Invoke for chrome extension, MCP troubleshooting, browser connectivity."
+    },
+    {
+      "id": "cli-developer",
+      "name": "CLI Developer",
+      "category": "frontend",
+      "triggers": [
+        "CLI",
+        "command-line",
+        "terminal app",
+        "argument parsing",
+        "shell completion",
+        "interactive prompt",
+        "progress bar",
+        "commander",
+        "click",
+        "typer",
+        "cobra"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building CLI tools, implementing argument parsing, or adding interactive prompts. Invoke for CLI design, argument parsing, interactive prompts, progress indicators, shell completions.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer"
+        ]
+      }
+    },
+    {
+      "id": "cloud-architect",
+      "name": "Cloud Architect",
+      "category": "security",
+      "triggers": [
+        "AWS",
+        "Azure",
+        "GCP",
+        "Google Cloud",
+        "cloud migration",
+        "cloud architecture",
+        "multi-cloud",
+        "cloud cost",
+        "Well-Architected",
+        "landing zone",
+        "cloud security",
+        "disaster recovery",
+        "cloud native",
+        "serverless architecture"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "description": "Use when designing cloud architectures, planning migrations, or optimizing multi-cloud deployments. Invoke for Well-Architected Framework, cost optimization, disaster recovery, landing zones, security architecture, serverless design.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "kubernetes-specialist",
+          "microservices-architect"
+        ]
+      }
+    },
+    {
+      "id": "code-documenter",
+      "name": "Code Documenter",
+      "category": "documentation",
+      "triggers": [
+        "documentation",
+        "docstrings",
+        "OpenAPI",
+        "Swagger",
+        "JSDoc",
+        "comments",
+        "API docs",
+        "tutorials",
+        "user guides",
+        "doc site"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "description": "Use when adding docstrings, creating API documentation, or building documentation sites. Invoke for OpenAPI/Swagger specs, JSDoc, doc portals, tutorials, user guides."
+    },
+    {
+      "id": "code-reviewer",
+      "name": "Code Reviewer",
+      "category": "workflow",
+      "triggers": [
+        "code review",
+        "PR review",
+        "pull request",
+        "review code",
+        "code quality"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "gh": "recommended",
+        "github": "recommended"
+      },
+      "relatedPlugins": [
+        "git-workflow-plugin"
+      ],
+      "description": "Use when reviewing pull requests, conducting code quality audits, or identifying security vulnerabilities. Invoke for PR reviews, code quality checks, refactoring suggestions.",
+      "dependencies": {
+        "recommended": [
+          "architecture-designer",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "cpp-pro",
+      "name": "C++ Pro",
+      "category": "languages",
+      "triggers": [
+        "C++",
+        "C++20",
+        "C++23",
+        "modern C++",
+        "template metaprogramming",
+        "systems programming",
+        "performance optimization",
+        "SIMD",
+        "memory management",
+        "CMake"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building C++ applications requiring modern C++20/23 features, template metaprogramming, or high-performance systems. Invoke for concepts, ranges, coroutines, SIMD optimization, memory management.",
+      "dependencies": {
+        "recommended": [
+          "rust-engineer"
+        ]
+      }
+    },
+    {
+      "id": "csharp-developer",
+      "name": "C# Developer",
+      "category": "languages",
+      "triggers": [
+        "C#",
+        ".NET",
+        "ASP.NET Core",
+        "Blazor",
+        "Entity Framework",
+        "EF Core",
+        "Minimal API",
+        "MAUI",
+        "SignalR"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building C# applications with .NET 8+, ASP.NET Core APIs, or Blazor web apps. Invoke for Entity Framework Core, minimal APIs, async patterns, CQRS with MediatR.",
+      "dependencies": {
+        "recommended": [
+          "api-designer",
+          "devops-engineer"
+        ]
+      }
+    },
+    {
+      "id": "devops-engineer",
+      "name": "DevOps Engineer",
+      "category": "devops",
+      "triggers": [
+        "DevOps",
+        "CI/CD",
+        "deployment",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "GitHub Actions",
+        "infrastructure",
+        "platform engineering",
+        "incident response",
+        "on-call",
+        "self-service"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "docker": "recommended",
+        "github": "optional"
+      },
+      "relatedPlugins": [
+        "docker-plugin",
+        "github-actions-plugin"
+      ],
+      "description": "Use when setting up CI/CD pipelines, containerizing applications, or managing infrastructure as code. Invoke for pipelines, Docker, Kubernetes, cloud platforms, GitOps."
+    },
+    {
+      "id": "django-expert",
+      "name": "Django Expert",
+      "category": "backend",
+      "triggers": [
+        "Django",
+        "DRF",
+        "Django REST Framework",
+        "Django ORM",
+        "Django model",
+        "serializer",
+        "viewset",
+        "Python web"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended",
+        "postgres": "recommended"
+      },
+      "description": "Use when building Django web applications or REST APIs with Django REST Framework. Invoke for Django models, ORM optimization, DRF serializers, viewsets, authentication with JWT.",
+      "dependencies": {
+        "recommended": [
+          "fastapi-expert",
+          "fullstack-guardian",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "docker-management",
+      "name": "Docker Management",
+      "category": "devops",
+      "triggers": [
+        "docker management",
+        "docker",
+        "management"
+      ],
+      "cli": null,
+      "mcp": "docker",
+      "plugin": "docker-plugin",
+      "source": "nickmohler",
+      "toolImportance": {
+        "docker": "essential"
+      },
+      "description": "Use when managing Docker containers, images, networks, or volumes. Invoke for container lifecycle, Docker Compose workflows, image building, and Docker troubleshooting."
+    },
+    {
+      "id": "dotnet-core-expert",
+      "name": ".NET Core Expert",
+      "category": "backend",
+      "triggers": [
+        ".NET Core",
+        ".NET 8",
+        "ASP.NET Core",
+        "C# 12",
+        "minimal API",
+        "Entity Framework Core",
+        "microservices .NET",
+        "CQRS",
+        "MediatR"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building .NET 8 applications with minimal APIs, clean architecture, or cloud-native microservices. Invoke for Entity Framework Core, CQRS with MediatR, JWT authentication, AOT compilation.",
+      "dependencies": {
+        "recommended": [
+          "cloud-architect",
+          "fullstack-guardian",
+          "microservices-architect",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "fastapi-expert",
+      "name": "FastAPI Expert",
+      "category": "backend",
+      "triggers": [
+        "FastAPI",
+        "Pydantic",
+        "async Python",
+        "Python API",
+        "REST API Python",
+        "SQLAlchemy async",
+        "JWT authentication",
+        "OpenAPI",
+        "Swagger Python"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended",
+        "postgres": "recommended"
+      },
+      "description": "Use when building high-performance async Python APIs with FastAPI and Pydantic V2. Invoke for async SQLAlchemy, JWT authentication, WebSockets, OpenAPI documentation.",
+      "dependencies": {
+        "recommended": [
+          "django-expert",
+          "fullstack-guardian",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "feature-forge",
+      "name": "Feature Forge",
+      "category": "workflow",
+      "triggers": [
+        "requirements",
+        "specification",
+        "feature definition",
+        "user stories",
+        "EARS",
+        "planning"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "chriswiles",
+      "description": "Use when defining new features, gathering requirements, or writing specifications. Invoke for feature definition, requirements gathering, user stories, EARS format specs.",
+      "dependencies": {
+        "recommended": [
+          "fullstack-guardian",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "fine-tuning-expert",
+      "name": "Fine Tuning Expert",
+      "category": "ai-ml",
+      "triggers": [
+        "fine-tuning",
+        "fine tuning",
+        "LoRA",
+        "QLoRA",
+        "PEFT",
+        "adapter tuning",
+        "transfer learning",
+        "model training",
+        "custom model",
+        "LLM training",
+        "instruction tuning",
+        "RLHF",
+        "model optimization",
+        "quantization"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when fine-tuning LLMs, training custom models, or optimizing model performance for specific tasks. Invoke for parameter-efficient methods, dataset preparation, or model adaptation.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer"
+        ]
+      }
+    },
+    {
+      "id": "flutter-expert",
+      "name": "Flutter Expert",
+      "category": "mobile",
+      "triggers": [
+        "Flutter",
+        "Dart",
+        "widget",
+        "Riverpod",
+        "Bloc",
+        "GoRouter",
+        "cross-platform"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building cross-platform applications with Flutter 3+ and Dart. Invoke for widget development, Riverpod/Bloc state management, GoRouter navigation, platform-specific implementations, performance optimization.",
+      "dependencies": {
+        "recommended": [
+          "fullstack-guardian",
+          "react-native-expert",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "fullstack-guardian",
+      "name": "Fullstack Guardian",
+      "category": "workflow",
+      "triggers": [
+        "fullstack",
+        "implement feature",
+        "build feature",
+        "create API",
+        "frontend and backend",
+        "full stack",
+        "new feature",
+        "implement",
+        "microservices",
+        "websocket",
+        "real-time",
+        "deployment pipeline",
+        "monorepo",
+        "architecture decision",
+        "technology selection",
+        "end-to-end"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "description": "Use when implementing features across frontend and backend, building APIs with UI, or creating end-to-end data flows. Invoke for feature implementation, API development, UI building, cross-stack work.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "feature-forge",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "github-actions-management",
+      "name": "GitHub Actions Management",
+      "category": "devops",
+      "triggers": [
+        "github actions management",
+        "github",
+        "actions",
+        "management"
+      ],
+      "cli": null,
+      "mcp": "github-actions",
+      "plugin": "github-actions-plugin",
+      "source": "nickmohler",
+      "toolImportance": {
+        "github-actions": "essential",
+        "gh": "recommended"
+      },
+      "relatedPlugins": [
+        "git-workflow-plugin",
+        "docker-plugin"
+      ],
+      "description": "Use when working with GitHub Actions CI/CD pipelines. Invoke for listing, triggering, monitoring, debugging, and rerunning workflows."
+    },
+    {
+      "id": "gitops-workflows",
+      "name": "Gitops Workflows",
+      "category": "devops",
+      "triggers": [
+        "gitops workflows",
+        "gitops",
+        "workflows"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "ahmedasmar",
+      "toolImportance": {
+        "gh": "recommended",
+        "github": "recommended"
+      },
+      "relatedPlugins": [
+        "git-workflow-plugin",
+        "docker-plugin"
+      ],
+      "description": "Use when setting up GitOps with ArgoCD or Flux, designing repository structures, implementing multi-cluster deployments, managing secrets in Git, or configuring progressive delivery. Invoke for ArgoCD 3.x setup, Flux 2.7 bootstrap, ApplicationSets, SOPS/Sealed Secrets, Argo Rollouts, Flagger canary deployments, and sync troubleshooting."
+    },
+    {
+      "id": "golang-pro",
+      "name": "Go Pro",
+      "category": "languages",
+      "triggers": [
+        "Go",
+        "Golang",
+        "goroutines",
+        "channels",
+        "gRPC",
+        "microservices Go",
+        "Go generics",
+        "concurrent programming",
+        "Go interfaces"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building Go applications requiring concurrent programming, microservices architecture, or high-performance systems. Invoke for goroutines, channels, Go generics, gRPC integration.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "microservices-architect",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "java-architect",
+      "name": "Java Architect",
+      "category": "languages",
+      "triggers": [
+        "Spring Boot",
+        "Java",
+        "microservices",
+        "Spring Cloud",
+        "JPA",
+        "Hibernate",
+        "WebFlux",
+        "reactive",
+        "Java Enterprise"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building enterprise Java applications with Spring Boot 3.x, microservices, or reactive programming. Invoke for WebFlux, JPA optimization, Spring Security, cloud-native patterns.",
+      "dependencies": {
+        "recommended": [
+          "api-designer",
+          "devops-engineer",
+          "fullstack-guardian"
+        ]
+      }
+    },
+    {
+      "id": "javascript-pro",
+      "name": "Javascript Pro",
+      "category": "languages",
+      "triggers": [
+        "JavaScript",
+        "ES2023",
+        "async await",
+        "Node.js",
+        "vanilla JavaScript",
+        "Web Workers",
+        "Fetch API",
+        "browser API",
+        "module system"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "react-dev-plugin"
+      ],
+      "description": "Use when building JavaScript applications with modern ES2023+ features, async patterns, or Node.js development. Invoke for vanilla JavaScript, browser APIs, performance optimization, module systems.",
+      "dependencies": {
+        "recommended": [
+          "fullstack-guardian"
+        ]
+      }
+    },
+    {
+      "id": "jest-testing-patterns",
+      "name": "Jest Testing Patterns",
+      "category": "testing",
+      "triggers": [
+        "jest testing patterns",
+        "jest",
+        "testing",
+        "patterns"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "react-dev-plugin"
+      ],
+      "description": "Use when writing unit tests with Jest and React Testing Library. Invoke for TDD workflow, factory functions, mocking strategies, and component testing patterns."
+    },
+    {
+      "id": "k8s-troubleshooter",
+      "name": "K8s Troubleshooter",
+      "category": "devops",
+      "triggers": [
+        "k8s troubleshooter",
+        "k8s",
+        "troubleshooter"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "ahmedasmar",
+      "toolImportance": {
+        "docker": "recommended"
+      },
+      "description": "Use when diagnosing pod failures, cluster issues, performance problems, networking issues, or storage failures. Invoke for Kubernetes incident response, CrashLoopBackOff debugging, OOMKilled analysis, Helm troubleshooting, and systematic cluster health checks."
+    },
+    {
+      "id": "kotlin-specialist",
+      "name": "Kotlin Specialist",
+      "category": "languages",
+      "triggers": [
+        "Kotlin",
+        "coroutines",
+        "Kotlin Multiplatform",
+        "KMP",
+        "Jetpack Compose",
+        "Ktor",
+        "Flow",
+        "Android Kotlin",
+        "suspend function"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building Kotlin applications requiring coroutines, multiplatform development, or Android with Compose. Invoke for Flow API, KMP projects, Ktor servers, DSL design, sealed classes.",
+      "dependencies": {
+        "recommended": [
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "kubernetes-specialist",
+      "name": "Kubernetes Specialist",
+      "category": "devops",
+      "triggers": [
+        "Kubernetes",
+        "K8s",
+        "kubectl",
+        "Helm",
+        "container orchestration",
+        "pod deployment",
+        "RBAC",
+        "NetworkPolicy",
+        "Ingress",
+        "StatefulSet",
+        "Operator",
+        "CRD",
+        "CustomResourceDefinition",
+        "ArgoCD",
+        "Flux",
+        "GitOps",
+        "Istio",
+        "Linkerd",
+        "service mesh",
+        "multi-cluster",
+        "cost optimization",
+        "VPA",
+        "spot instances"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "docker": "recommended"
+      },
+      "relatedPlugins": [
+        "docker-plugin"
+      ],
+      "description": "Use when deploying or managing Kubernetes workloads requiring cluster configuration, security hardening, or troubleshooting. Invoke for Helm charts, RBAC policies, NetworkPolicies, storage configuration, performance optimization.",
+      "dependencies": {
+        "recommended": [
+          "cloud-architect",
+          "devops-engineer"
+        ]
+      }
+    },
+    {
+      "id": "laravel-specialist",
+      "name": "Laravel Specialist",
+      "category": "backend",
+      "triggers": [
+        "Laravel",
+        "Eloquent",
+        "PHP framework",
+        "Laravel API",
+        "Artisan",
+        "Blade templates",
+        "Laravel queues",
+        "Livewire",
+        "Laravel testing",
+        "Sanctum",
+        "Horizon"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended",
+        "postgres": "recommended"
+      },
+      "description": "Use when building Laravel 10+ applications requiring Eloquent ORM, API resources, or queue systems. Invoke for Laravel models, Livewire components, Sanctum authentication, Horizon queues.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "fullstack-guardian",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "legacy-modernizer",
+      "name": "Legacy Modernizer",
+      "category": "workflow",
+      "triggers": [
+        "legacy modernization",
+        "strangler fig",
+        "incremental migration",
+        "technical debt",
+        "legacy refactoring",
+        "system migration",
+        "legacy system",
+        "modernize codebase"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "description": "Use when modernizing legacy systems, implementing incremental migration strategies, or reducing technical debt. Invoke for strangler fig pattern, monolith decomposition, framework upgrades.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "mcp-developer",
+      "name": "MCP Developer",
+      "category": "architecture",
+      "triggers": [
+        "MCP",
+        "Model Context Protocol",
+        "MCP server",
+        "MCP client",
+        "Claude integration",
+        "AI tools",
+        "context protocol",
+        "JSON-RPC"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "mcp-builder-plugin"
+      ],
+      "description": "Use when building MCP servers or clients that connect AI systems with external tools and data sources. Invoke for MCP protocol compliance, TypeScript/Python SDKs, resource providers, tool functions.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "fastapi-expert",
+          "typescript-pro"
+        ]
+      }
+    },
+    {
+      "id": "microservices-architect",
+      "name": "Microservices Architect",
+      "category": "architecture",
+      "triggers": [
+        "microservices",
+        "service mesh",
+        "distributed systems",
+        "service boundaries",
+        "domain-driven design",
+        "event sourcing",
+        "CQRS",
+        "saga pattern",
+        "Kubernetes microservices",
+        "Istio",
+        "distributed tracing"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "docker": "recommended",
+        "context7": "optional"
+      },
+      "relatedPlugins": [
+        "docker-plugin"
+      ],
+      "description": "Use when designing distributed systems, decomposing monoliths, or implementing microservices patterns. Invoke for service boundaries, DDD, saga patterns, event sourcing, service mesh, distributed tracing.",
+      "dependencies": {
+        "recommended": [
+          "architecture-designer",
+          "devops-engineer",
+          "kubernetes-specialist"
+        ]
+      }
+    },
+    {
+      "id": "ml-pipeline",
+      "name": "ML Pipeline",
+      "category": "frontend",
+      "triggers": [
+        "ML pipeline",
+        "MLflow",
+        "Kubeflow",
+        "feature engineering",
+        "model training",
+        "experiment tracking",
+        "feature store",
+        "hyperparameter tuning",
+        "pipeline orchestration",
+        "model registry",
+        "training workflow",
+        "MLOps",
+        "model deployment",
+        "data pipeline",
+        "model versioning"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building ML pipelines, orchestrating training workflows, automating model lifecycle, implementing feature stores, or managing experiment tracking systems.",
+      "dependencies": {
+        "recommended": [
+          "cloud-architect",
+          "devops-engineer",
+          "kubernetes-specialist",
+          "python-pro"
+        ]
+      }
+    },
+    {
+      "id": "modern-python",
+      "name": "Modern Python",
+      "category": "backend",
+      "triggers": [
+        "modern python",
+        "modern",
+        "python"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "modern-python-plugin",
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "property-based-testing-plugin"
+      ],
+      "description": "Use when setting up Python projects with modern tooling. Invoke for uv, ruff, ty, pyproject.toml, Python project setup."
+    },
+    {
+      "id": "nestjs-expert",
+      "name": "NestJS Expert",
+      "category": "backend",
+      "triggers": [
+        "NestJS",
+        "Nest",
+        "Node.js backend",
+        "TypeScript backend",
+        "dependency injection",
+        "controller",
+        "service",
+        "module",
+        "guard",
+        "interceptor"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended",
+        "postgres": "recommended"
+      },
+      "description": "Use when building NestJS applications requiring modular architecture, dependency injection, or TypeScript backend development. Invoke for modules, controllers, services, DTOs, guards, interceptors, TypeORM/Prisma.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "fullstack-guardian",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "nextjs-auth-security",
+      "name": "Next.js Auth Security",
+      "category": "security",
+      "triggers": [
+        "nextjs auth security",
+        "nextjs",
+        "auth",
+        "security",
+        "next.js"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "harperaa",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when implementing authentication and authorization with Clerk in Next.js. Invoke for route protection, user verification, RBAC, subscription-based access control, session management. security, OWASP, Next.js, authentication, authorization, Clerk, protect route, permissions, session"
+    },
+    {
+      "id": "nextjs-csrf-protection",
+      "name": "Next.js CSRF Protection",
+      "category": "security",
+      "triggers": [
+        "nextjs csrf protection",
+        "nextjs",
+        "csrf",
+        "protection",
+        "next.js"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when protecting POST/PUT/DELETE endpoints from cross-site request forgery. Invoke for CSRF token validation, withCsrf middleware, form protection, session fixation prevention. security, OWASP, Next.js, CSRF, cross-site request forgery, token validation, protect form"
+    },
+    {
+      "id": "nextjs-dependency-security",
+      "name": "Next.js Dependency Security",
+      "category": "security",
+      "triggers": [
+        "nextjs dependency security",
+        "nextjs",
+        "dependency",
+        "security",
+        "next.js"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "harperaa",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when auditing dependencies and managing supply chain security. Invoke for npm audit, package vulnerability checks, dependency updates, supply chain attack prevention, typosquatting defense. security, OWASP, Next.js, dependencies, npm audit, supply chain, package security, vulnerability"
+    },
+    {
+      "id": "nextjs-error-handling",
+      "name": "Next.js Error Handling",
+      "category": "security",
+      "triggers": [
+        "nextjs error handling",
+        "nextjs",
+        "error",
+        "handling",
+        "next.js"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when implementing secure error handling to prevent information leakage. Invoke for environment-aware error messages, handleApiError, production error responses, stack trace prevention. security, OWASP, Next.js, error handling, information leakage, stack trace, production errors"
+    },
+    {
+      "id": "nextjs-input-validation",
+      "name": "Next.js Input Validation",
+      "category": "security",
+      "triggers": [
+        "nextjs input validation",
+        "nextjs",
+        "input",
+        "validation",
+        "next.js"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when validating and sanitizing user input to prevent XSS, injection attacks. Invoke for Zod schema validation, form validation, input sanitization, cross-site scripting prevention. security, OWASP, Next.js, input validation, XSS, cross-site scripting, sanitize, Zod, injection prevention"
+    },
+    {
+      "id": "nextjs-payment-security",
+      "name": "Next.js Payment Security",
+      "category": "security",
+      "triggers": [
+        "nextjs payment security",
+        "nextjs",
+        "payment",
+        "security",
+        "next.js"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "harperaa",
+      "toolImportance": {
+        "context7": "recommended",
+        "stripe": "optional"
+      },
+      "description": "Use when implementing secure payments with Clerk Billing and Stripe. Invoke for PCI-DSS compliance, subscription payments, webhook verification, payment gating. security, OWASP, Next.js, Stripe, payments, PCI-DSS, Clerk Billing, subscription, webhook, billing"
+    },
+    {
+      "id": "nextjs-rate-limiting",
+      "name": "Next.js Rate Limiting",
+      "category": "security",
+      "triggers": [
+        "nextjs rate limiting",
+        "nextjs",
+        "rate",
+        "limiting",
+        "next.js"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when protecting endpoints from brute force, spam, and resource abuse. Invoke for rate limiting middleware, API abuse prevention, DoS protection, cost control on expensive operations. security, OWASP, Next.js, rate limiting, brute force, prevent spam, API abuse, 429 error, withRateLimit"
+    },
+    {
+      "id": "nextjs-security-headers",
+      "name": "Next.js Security Headers",
+      "category": "security",
+      "triggers": [
+        "nextjs security headers",
+        "nextjs",
+        "security",
+        "headers",
+        "next.js"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "harperaa",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when configuring security headers for Next.js middleware. Invoke for Content-Security-Policy, X-Frame-Options, HSTS, clickjacking prevention, MIME confusion defense. security, OWASP, Next.js, CSP, content security policy, security headers, clickjacking, HSTS, middleware headers"
+    },
+    {
+      "id": "nextjs-security-operations",
+      "name": "Next.js Security Operations",
+      "category": "security",
+      "triggers": [
+        "nextjs security operations",
+        "nextjs",
+        "security",
+        "operations",
+        "next.js"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "harperaa",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when deploying and monitoring Next.js application security. Invoke for middleware decision guide, environment variable setup, pre-deployment checklist, security monitoring, maintenance schedule. security, OWASP, Next.js, security operations, deployment security, security monitoring, environment variables, production security"
+    },
+    {
+      "id": "nextjs-security-overview",
+      "name": "Next.js Security Overview",
+      "category": "security",
+      "triggers": [
+        "nextjs security overview",
+        "nextjs",
+        "security",
+        "overview",
+        "next.js"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "harperaa",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building secure Next.js applications. Invoke for defense-in-depth architecture, 5-layer security stack, OWASP scoring, security layer decisions. security, OWASP, Next.js, defense in depth, security architecture, security layers, security overview, security principles",
+      "dependencies": {
+        "recommended": [
+          "nextjs-auth-security",
+          "nextjs-csrf-protection",
+          "nextjs-dependency-security",
+          "nextjs-error-handling",
+          "nextjs-input-validation",
+          "nextjs-payment-security",
+          "nextjs-rate-limiting",
+          "nextjs-security-headers",
+          "nextjs-security-testing"
+        ]
+      }
+    },
+    {
+      "id": "nextjs-security-testing",
+      "name": "Next.js Security Testing",
+      "category": "security",
+      "triggers": [
+        "nextjs security testing",
+        "nextjs",
+        "security",
+        "testing",
+        "next.js"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "harperaa",
+      "toolImportance": {
+        "context7": "recommended",
+        "playwright": "optional"
+      },
+      "relatedPlugins": [
+        "react-dev-plugin",
+        "webapp-testing-plugin"
+      ],
+      "description": "Use when testing security features and running pre-deployment verification. Invoke for CSRF testing, rate limit testing, security header verification, penetration testing, security checklist. security, OWASP, Next.js, security testing, verify security, pre-deployment, security checklist"
+    },
+    {
+      "id": "pandas-pro",
+      "name": "Pandas Pro",
+      "category": "languages",
+      "triggers": [
+        "pandas",
+        "DataFrame",
+        "data manipulation",
+        "data cleaning",
+        "aggregation",
+        "groupby",
+        "merge",
+        "join",
+        "time series",
+        "data wrangling",
+        "pivot table",
+        "data transformation"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when working with pandas DataFrames, data cleaning, aggregation, merging, or time series analysis. Invoke for data manipulation, missing value handling, groupby operations, or performance optimization.",
+      "dependencies": {
+        "recommended": [
+          "python-pro"
+        ]
+      }
+    },
+    {
+      "id": "php-pro",
+      "name": "PHP Pro",
+      "category": "languages",
+      "triggers": [
+        "PHP",
+        "Laravel",
+        "Symfony",
+        "Composer",
+        "PHPStan",
+        "PSR",
+        "PHP API",
+        "Eloquent",
+        "Doctrine"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building PHP applications with modern PHP 8.3+ features, Laravel, or Symfony frameworks. Invoke for strict typing, PHPStan level 9, async patterns with Swoole, PSR standards.",
+      "dependencies": {
+        "recommended": [
+          "fastapi-expert",
+          "fullstack-guardian"
+        ]
+      }
+    },
+    {
+      "id": "prompt-engineer",
+      "name": "Prompt Engineer",
+      "category": "ai-ml",
+      "triggers": [
+        "prompt engineering",
+        "prompt optimization",
+        "chain-of-thought",
+        "few-shot learning",
+        "prompt testing",
+        "LLM prompts",
+        "prompt evaluation",
+        "system prompts",
+        "structured outputs",
+        "prompt design"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "description": "Use when designing prompts for LLMs, optimizing model performance, building evaluation frameworks, or implementing advanced prompting techniques like chain-of-thought, few-shot learning, or structured outputs.",
+      "dependencies": {
+        "recommended": [
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "property-based-testing",
+      "name": "Property Based Testing",
+      "category": "testing",
+      "triggers": [
+        "property based testing",
+        "property",
+        "based",
+        "testing"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "property-based-testing-plugin",
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when writing property-based tests across languages. Invoke for property testing, fuzzing, Hypothesis, QuickCheck, test generation."
+    },
+    {
+      "id": "python-backend-review",
+      "name": "Python Backend Review",
+      "category": "backend",
+      "triggers": [
+        "python backend review",
+        "python",
+        "backend",
+        "review"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "description": "Comprehensive design architecture review for Python backend applications. Use this skill when users ask you to review, analyze, or provide feedback on backend architecture designs, system design documents, or Python application architecture. Covers scalability, security, performance, database design, API design, microservices patterns, deployment architecture, and best practices."
+    },
+    {
+      "id": "python-pro",
+      "name": "Python Pro",
+      "category": "languages",
+      "triggers": [
+        "Python development",
+        "type hints",
+        "async Python",
+        "pytest",
+        "mypy",
+        "dataclasses",
+        "Python best practices",
+        "Pythonic code"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "modern-python-plugin",
+        "property-based-testing-plugin"
+      ],
+      "description": "Use when building Python 3.11+ applications requiring type safety, async programming, or production-grade patterns. Invoke for type hints, pytest, async/await, dataclasses, mypy configuration.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "fastapi-expert"
+        ]
+      }
+    },
+    {
+      "id": "rag-architect",
+      "name": "RAG Architect",
+      "category": "frontend",
+      "triggers": [
+        "RAG",
+        "retrieval-augmented generation",
+        "vector search",
+        "embeddings",
+        "semantic search",
+        "vector database",
+        "document retrieval",
+        "knowledge base",
+        "context retrieval",
+        "similarity search"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended",
+        "postgres": "optional"
+      },
+      "description": "Use when building RAG systems, vector databases, or knowledge-grounded AI applications requiring semantic search, document retrieval, or context augmentation.",
+      "dependencies": {
+        "recommended": [
+          "api-designer",
+          "python-pro"
+        ]
+      }
+    },
+    {
+      "id": "rails-expert",
+      "name": "Rails Expert",
+      "category": "backend",
+      "triggers": [
+        "Rails",
+        "Ruby on Rails",
+        "Hotwire",
+        "Turbo Frames",
+        "Turbo Streams",
+        "Action Cable",
+        "Active Record",
+        "Sidekiq",
+        "RSpec Rails"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended",
+        "postgres": "recommended"
+      },
+      "description": "Use when building Rails 7+ web applications with Hotwire, real-time features, or background job processing. Invoke for Active Record optimization, Turbo Frames/Streams, Action Cable, Sidekiq.",
+      "dependencies": {
+        "recommended": [
+          "fullstack-guardian"
+        ]
+      }
+    },
+    {
+      "id": "react-native-expert",
+      "name": "React Native Expert",
+      "category": "mobile",
+      "triggers": [
+        "React Native",
+        "Expo",
+        "mobile app",
+        "iOS",
+        "Android",
+        "cross-platform",
+        "native module"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building cross-platform mobile applications with React Native or Expo. Invoke for navigation patterns, platform-specific code, native modules, FlatList optimization.",
+      "dependencies": {
+        "recommended": [
+          "flutter-expert",
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "rust-engineer",
+      "name": "Rust Engineer",
+      "category": "languages",
+      "triggers": [
+        "Rust",
+        "Cargo",
+        "ownership",
+        "borrowing",
+        "lifetimes",
+        "async Rust",
+        "tokio",
+        "zero-cost abstractions",
+        "memory safety",
+        "systems programming"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building Rust applications requiring memory safety, systems programming, or zero-cost abstractions. Invoke for ownership patterns, lifetimes, traits, async/await with tokio.",
+      "dependencies": {
+        "recommended": [
+          "test-master"
+        ]
+      }
+    },
+    {
+      "id": "salesforce-developer",
+      "name": "Salesforce Developer",
+      "category": "integrations",
+      "triggers": [
+        "Salesforce",
+        "Apex",
+        "Lightning Web Components",
+        "LWC",
+        "SOQL",
+        "SOSL",
+        "Visualforce",
+        "Salesforce DX",
+        "governor limits",
+        "triggers",
+        "platform events",
+        "CRM integration",
+        "Sales Cloud",
+        "Service Cloud"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when developing Salesforce applications, Apex code, Lightning Web Components, SOQL queries, triggers, integrations, or CRM customizations. Invoke for governor limits, bulk processing, platform events, Salesforce DX.",
+      "dependencies": {
+        "recommended": [
+          "api-designer",
+          "cloud-architect",
+          "devops-engineer",
+          "java-architect"
+        ]
+      }
+    },
+    {
+      "id": "security-burpsuite-parser",
+      "name": "Security Burpsuite Parser",
+      "category": "security",
+      "triggers": [
+        "security burpsuite parser",
+        "security",
+        "burpsuite",
+        "parser"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-burpsuite-parser-plugin",
+      "source": "trailofbits",
+      "description": "Use when searching and exploring Burp Suite project files. Invoke for Burp Suite, proxy history, HTTP traffic analysis, web security audit."
+    },
+    {
+      "id": "security-entry-points",
+      "name": "Security Entry Points",
+      "category": "security",
+      "triggers": [
+        "security entry points",
+        "security",
+        "entry",
+        "points"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-entry-points-plugin",
+      "source": "trailofbits",
+      "description": "Use when identifying state-changing entry points in smart contracts. Invoke for entry point analysis, smart contract audit, access control, Solidity, Rust."
+    },
+    {
+      "id": "security-firebase-apk",
+      "name": "Security Firebase Apk",
+      "category": "security",
+      "triggers": [
+        "security firebase apk",
+        "security",
+        "firebase",
+        "apk"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-firebase-apk-plugin",
+      "source": "trailofbits",
+      "toolImportance": {
+        "firebase": "recommended"
+      },
+      "description": "Use when scanning Android APKs for Firebase misconfigurations. Invoke for APK analysis, Firebase security, mobile app audit, Android security."
+    },
+    {
+      "id": "security-fix-review",
+      "name": "Security Fix Review",
+      "category": "security",
+      "triggers": [
+        "security fix review",
+        "security",
+        "fix",
+        "review"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-fix-review-plugin",
+      "source": "trailofbits",
+      "toolImportance": {
+        "github": "optional"
+      },
+      "relatedPlugins": [
+        "git-workflow-plugin"
+      ],
+      "description": "Use when verifying commits address security audit findings. Invoke for fix review, patch verification, security bug fix validation."
+    },
+    {
+      "id": "security-insecure-defaults",
+      "name": "Security Insecure Defaults",
+      "category": "security",
+      "triggers": [
+        "security insecure defaults",
+        "security",
+        "insecure",
+        "defaults"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-insecure-defaults-plugin",
+      "source": "trailofbits",
+      "description": "Use when detecting fail-open insecure defaults in applications. Invoke for insecure defaults, hardcoded secrets, weak auth, security audit, config review."
+    },
+    {
+      "id": "security-sharp-edges",
+      "name": "Security Sharp Edges",
+      "category": "security",
+      "triggers": [
+        "security sharp edges",
+        "security",
+        "sharp",
+        "edges"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-sharp-edges-plugin",
+      "source": "trailofbits",
+      "description": "Use when identifying error-prone APIs and dangerous configurations. Invoke for footgun, misuse-resistant design, secure defaults, API usability, sharp edges."
+    },
+    {
+      "id": "security-smart-contracts",
+      "name": "Security Smart Contracts",
+      "category": "security",
+      "triggers": [
+        "security smart contracts",
+        "security",
+        "smart",
+        "contracts"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-smart-contracts-plugin",
+      "source": "trailofbits",
+      "description": "Use when auditing or building secure smart contracts. Invoke for Solidity, Solana, Cairo, CosmWasm, TON, Substrate, Algorand vulnerability scanning, token integration, secure workflow."
+    },
+    {
+      "id": "security-spec-compliance",
+      "name": "Security Spec Compliance",
+      "category": "security",
+      "triggers": [
+        "security spec compliance",
+        "security",
+        "spec",
+        "compliance"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-spec-compliance-plugin",
+      "source": "trailofbits",
+      "description": "Use when verifying code implements what specs document. Invoke for spec compliance, whitepaper comparison, protocol audit, blockchain audit."
+    },
+    {
+      "id": "security-static-analysis",
+      "name": "Security Static Analysis",
+      "category": "security",
+      "triggers": [
+        "security static analysis",
+        "security",
+        "static",
+        "analysis"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-static-analysis-plugin",
+      "source": "trailofbits",
+      "description": "Use when running static analysis tools. Invoke for Semgrep, CodeQL, SARIF parsing, static analysis, code scanning, vulnerability detection."
+    },
+    {
+      "id": "security-testing-handbook",
+      "name": "Security Testing Handbook",
+      "category": "security",
+      "triggers": [
+        "security testing handbook",
+        "security",
+        "testing",
+        "handbook"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-testing-handbook-plugin",
+      "source": "trailofbits",
+      "description": "Use when performing security testing. Invoke for fuzzing, coverage analysis, AFL, libFuzzer, AddressSanitizer, Atheris, cargo-fuzz, OSS-Fuzz, Wycheproof, harness writing, constant-time testing."
+    },
+    {
+      "id": "security-timing-analysis",
+      "name": "Security Timing Analysis",
+      "category": "security",
+      "triggers": [
+        "security timing analysis",
+        "security",
+        "timing",
+        "analysis"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-timing-analysis-plugin",
+      "source": "trailofbits",
+      "description": "Use when detecting timing side-channel vulnerabilities in crypto code. Invoke for constant-time, timing attack, side-channel, cryptographic security."
+    },
+    {
+      "id": "security-variant-analysis",
+      "name": "Security Variant Analysis",
+      "category": "security",
+      "triggers": [
+        "security variant analysis",
+        "security",
+        "variant",
+        "analysis"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-variant-analysis-plugin",
+      "source": "trailofbits",
+      "description": "Use when hunting bug variants across codebases. Invoke for variant analysis, CodeQL, pattern matching, vulnerability hunting, security audit."
+    },
+    {
+      "id": "semgrep-rule-creator",
+      "name": "Semgrep Rule Creator",
+      "category": "security",
+      "triggers": [
+        "semgrep rule creator",
+        "semgrep",
+        "rule",
+        "creator"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "semgrep-rule-creator-plugin",
+      "source": "trailofbits",
+      "description": "Use when creating custom Semgrep rules for security detection. Invoke for Semgrep, static analysis rules, vulnerability patterns, code scanning."
+    },
+    {
+      "id": "semgrep-rule-variants",
+      "name": "Semgrep Rule Variants",
+      "category": "security",
+      "triggers": [
+        "semgrep rule variants",
+        "semgrep",
+        "rule",
+        "variants"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "semgrep-rule-variants-plugin",
+      "source": "trailofbits",
+      "description": "Use when porting Semgrep rules to other languages. Invoke for Semgrep variants, cross-language rules, rule porting, static analysis."
+    },
+    {
+      "id": "shopify-expert",
+      "name": "Shopify Expert",
+      "category": "frontend",
+      "triggers": [
+        "Shopify",
+        "Liquid",
+        "Storefront API",
+        "Shopify Plus",
+        "Hydrogen",
+        "Shopify app",
+        "checkout extensions",
+        "Shopify Functions",
+        "App Bridge",
+        "theme development",
+        "e-commerce",
+        "Polaris"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building Shopify themes, apps, custom storefronts, or e-commerce solutions. Invoke for Liquid templating, Storefront API, app development, checkout customization, Shopify Plus features.",
+      "dependencies": {
+        "recommended": [
+          "api-designer"
+        ]
+      }
+    },
+    {
+      "id": "spring-boot-engineer",
+      "name": "Spring Boot Engineer",
+      "category": "backend",
+      "triggers": [
+        "Spring Boot",
+        "Spring Framework",
+        "Spring Cloud",
+        "Spring Security",
+        "Spring Data JPA",
+        "Spring WebFlux",
+        "Microservices Java",
+        "Java REST API",
+        "Reactive Java"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building Spring Boot 3.x applications, microservices, or reactive Java applications. Invoke for Spring Data JPA, Spring Security 6, WebFlux, Spring Cloud integration.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "java-architect",
+          "microservices-architect"
+        ]
+      }
+    },
+    {
+      "id": "sql-pro",
+      "name": "SQL Pro",
+      "category": "languages",
+      "triggers": [
+        "SQL optimization",
+        "query performance",
+        "database design",
+        "PostgreSQL",
+        "MySQL",
+        "SQL Server",
+        "window functions",
+        "CTEs",
+        "query tuning",
+        "EXPLAIN plan",
+        "database indexing"
+      ],
+      "cli": null,
+      "mcp": "postgres",
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "postgres": "essential"
+      },
+      "description": "Use when optimizing SQL queries, designing database schemas, or tuning database performance. Invoke for complex queries, window functions, CTEs, indexing strategies, query plan analysis.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer"
+        ]
+      }
+    },
+    {
+      "id": "svg-logo-designer",
+      "name": "SVG Logo Designer",
+      "category": "design",
+      "triggers": [
+        "svg logo designer",
+        "svg",
+        "logo",
+        "designer"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "description": "Create professional SVG logos from descriptions and design specifications. Generates multiple logo variations with different layouts, styles, and concepts. Produces scalable vector graphics that can be used directly or exported to PNG. Use this skill when users ask to create logos, brand identities, icons, or visual marks for their designs."
+    },
+    {
+      "id": "swift-expert",
+      "name": "Swift Expert",
+      "category": "languages",
+      "triggers": [
+        "Swift",
+        "SwiftUI",
+        "iOS development",
+        "macOS development",
+        "async/await Swift",
+        "Combine",
+        "UIKit",
+        "Vapor"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when building iOS/macOS applications with Swift 5.9+, SwiftUI, or async/await concurrency. Invoke for protocol-oriented programming, SwiftUI state management, actors, server-side Swift."
+    },
+    {
+      "id": "test-master",
+      "name": "Test Master",
+      "category": "testing",
+      "triggers": [
+        "test",
+        "testing",
+        "QA",
+        "unit test",
+        "integration test",
+        "E2E",
+        "coverage",
+        "performance test",
+        "security test",
+        "regression",
+        "test strategy",
+        "test automation",
+        "test framework",
+        "quality metrics",
+        "defect",
+        "exploratory",
+        "usability",
+        "accessibility",
+        "localization",
+        "manual testing",
+        "shift-left",
+        "quality gate",
+        "flaky test",
+        "test maintenance"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "playwright": "recommended",
+        "context7": "optional"
+      },
+      "relatedPlugins": [
+        "webapp-testing-plugin",
+        "playwright-plugin"
+      ],
+      "description": "Use when writing tests, creating test strategies, or building automation frameworks. Invoke for unit tests, integration tests, E2E, coverage analysis, performance testing, security testing.",
+      "dependencies": {
+        "recommended": [
+          "devops-engineer",
+          "fullstack-guardian"
+        ]
+      }
+    },
+    {
+      "id": "typescript-pro",
+      "name": "TypeScript Pro",
+      "category": "languages",
+      "triggers": [
+        "TypeScript",
+        "generics",
+        "type safety",
+        "conditional types",
+        "mapped types",
+        "tRPC",
+        "tsconfig",
+        "type guards",
+        "discriminated unions"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "react-dev-plugin"
+      ],
+      "description": "Use when building TypeScript applications requiring advanced type systems, generics, or full-stack type safety. Invoke for type guards, utility types, tRPC integration, monorepo setup.",
+      "dependencies": {
+        "recommended": [
+          "api-designer",
+          "fullstack-guardian"
+        ]
+      }
+    },
+    {
+      "id": "vue-expert",
+      "name": "Vue Expert",
+      "category": "frontend",
+      "triggers": [
+        "Vue 3",
+        "Composition API",
+        "Nuxt",
+        "Pinia",
+        "Vue composables",
+        "reactive",
+        "ref",
+        "Vue Router",
+        "Vite Vue",
+        "Quasar",
+        "Capacitor",
+        "PWA",
+        "service worker",
+        "Fastify SSR",
+        "sourcemap",
+        "Vite config",
+        "build optimization"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "webapp-testing-plugin"
+      ],
+      "description": "Use when building Vue 3 applications with Composition API, Nuxt 3, or Quasar. Invoke for Pinia, TypeScript, PWA, Capacitor mobile apps, Vite configuration.",
+      "dependencies": {
+        "recommended": [
+          "fullstack-guardian",
+          "typescript-pro"
+        ]
+      }
+    },
+    {
+      "id": "wordpress-pro",
+      "name": "WordPress Pro",
+      "category": "security",
+      "triggers": [
+        "WordPress",
+        "WooCommerce",
+        "Gutenberg",
+        "WordPress theme",
+        "WordPress plugin",
+        "custom blocks",
+        "ACF",
+        "WordPress REST API",
+        "hooks",
+        "filters",
+        "WordPress performance",
+        "WordPress security"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "jeffallan",
+      "description": "Use when developing WordPress themes, plugins, customizing Gutenberg blocks, implementing WooCommerce features, or optimizing WordPress performance and security.",
+      "dependencies": {
+        "recommended": [
+          "fullstack-guardian",
+          "laravel-specialist",
+          "php-pro"
+        ]
+      }
+    },
+    {
+      "id": "yara-rule-authoring",
+      "name": "YARA Rule Authoring",
+      "category": "security",
+      "triggers": [
+        "yara rule authoring",
+        "yara",
+        "rule",
+        "authoring"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "yara-rule-authoring-plugin",
+      "source": "trailofbits",
+      "description": "Use when writing or reviewing YARA detection rules. Invoke for YARA rules, malware detection, threat hunting, YARA-X, rule authoring."
+    },
+    {
+      "id": "security-chrome-troubleshooting",
+      "name": "Chrome MCP Troubleshooting",
+      "category": "utilities",
+      "triggers": [
+        "chrome troubleshooting",
+        "claude in chrome",
+        "mcp extension",
+        "browser extension not connected"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-chrome-troubleshooting-plugin",
+      "source": "trailofbits",
+      "toolImportance": {
+        "claude-in-chrome": "recommended"
+      },
+      "description": "Diagnose and fix Claude in Chrome MCP extension connectivity issues. Use when mcp__claude-in-chrome__* tools fail, return \"Browser extension is not connected\", or behave erratically."
+    },
+    {
+      "id": "nextjs-security",
+      "name": "Next.js Security Orchestrator",
+      "category": "security",
+      "triggers": [
+        "Next.js security audit",
+        "secure my Next.js app",
+        "Next.js security",
+        "OWASP Next.js",
+        "harden Next.js",
+        "full security review"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "nickmohler",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "description": "Use when performing a full Next.js security audit or securing a Next.js application end-to-end. Invoke for comprehensive security review, security audit, secure my Next.js app, OWASP compliance. Next.js security audit, secure Next.js, full security review, OWASP Next.js, harden Next.js",
+      "dependencies": {
+        "required": [
+          "nextjs-auth-security",
+          "nextjs-csrf-protection",
+          "nextjs-dependency-security",
+          "nextjs-input-validation",
+          "nextjs-payment-security",
+          "nextjs-rate-limiting",
+          "nextjs-security-headers",
+          "nextjs-security-operations",
+          "nextjs-security-overview",
+          "nextjs-security-testing"
+        ]
+      }
+    },
+    {
+      "id": "fullstack-dev",
+      "name": "Full-Stack Dev Orchestrator",
+      "category": "workflow",
+      "triggers": [
+        "full-stack app",
+        "build a web app",
+        "end-to-end development",
+        "frontend backend database",
+        "new project setup"
+      ],
+      "cli": "gh",
+      "mcp": null,
+      "plugin": null,
+      "source": "nickmohler",
+      "toolImportance": {
+        "context7": "recommended",
+        "playwright": "recommended",
+        "github": "recommended",
+        "postgres": "recommended"
+      },
+      "relatedPlugins": [
+        "react-dev-plugin",
+        "frontend-ui-plugin",
+        "webapp-testing-plugin",
+        "git-workflow-plugin"
+      ],
+      "description": "Use when building a full-stack application end-to-end. Invoke for new project setup, full-stack development, building a web app from scratch, frontend + backend + testing + deployment workflow.",
+      "dependencies": {
+        "required": [
+          "api-designer",
+          "database-pro",
+          "debugging",
+          "frontend-design",
+          "git-workflow",
+          "react-dev",
+          "webapp-testing"
+        ]
+      }
+    },
+    {
+      "id": "saas-setup",
+      "name": "SaaS Setup Orchestrator",
+      "category": "backend",
+      "triggers": [
+        "SaaS setup",
+        "launch SaaS",
+        "subscription app",
+        "build a SaaS",
+        "Stripe Supabase Vercel"
+      ],
+      "cli": "stripe",
+      "mcp": null,
+      "plugin": null,
+      "source": "nickmohler",
+      "toolImportance": {
+        "stripe": "essential",
+        "supabase": "essential",
+        "vercel": "recommended",
+        "playwright": "recommended"
+      },
+      "relatedPlugins": [
+        "webapp-testing-plugin"
+      ],
+      "description": "Use when setting up a SaaS application with auth, payments, database, and deployment. Invoke for SaaS project setup, launch a SaaS, build a subscription app, set up Stripe + Supabase + Vercel.",
+      "dependencies": {
+        "required": [
+          "oauth-setup",
+          "saas-starter-setup",
+          "stripe-integration",
+          "supabase-guide",
+          "vercel-deployment",
+          "webapp-testing"
+        ],
+        "recommended": [
+          "saas-from-scratch"
+        ]
+      }
+    },
+    {
+      "id": "security-audit",
+      "name": "Security Audit Orchestrator",
+      "category": "security",
+      "triggers": [
+        "security audit",
+        "vulnerability scan",
+        "secure my app",
+        "code security review",
+        "OWASP compliance",
+        "penetration testing"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "nickmohler",
+      "toolImportance": {
+        "github": "optional"
+      },
+      "relatedPlugins": [
+        "security-static-analysis-plugin",
+        "security-audit-context-plugin",
+        "git-workflow-plugin"
+      ],
+      "description": "Use when performing a comprehensive security audit on any codebase (not just Next.js). Invoke for security audit, vulnerability scan, secure my app, code security review, OWASP compliance, penetration testing prep.",
+      "dependencies": {
+        "required": [
+          "security-code-review",
+          "security-entry-points",
+          "security-insecure-defaults",
+          "security-sharp-edges",
+          "security-static-analysis",
+          "security-variant-analysis"
+        ]
+      }
+    },
+    {
+      "id": "terraform-pro",
+      "name": "Terraform Pro",
+      "category": "devops",
+      "triggers": [
+        "terraform",
+        "infrastructure as code",
+        "IaC",
+        "HCL",
+        "OpenTofu"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "community",
+      "toolImportance": {
+        "context7": "recommended"
+      },
+      "relatedPlugins": [
+        "docker-plugin"
+      ],
+      "description": "Use when working with Terraform, OpenTofu, Terragrunt, or infrastructure as code. Invoke for module development, state management, testing strategies, CI/CD pipelines, multi-environment workflows, troubleshooting, and IaC best practices across AWS, Azure, and GCP."
+    },
+    {
+      "id": "gitlab-stack",
+      "name": "GitLab Stack",
+      "category": "devops",
+      "triggers": [
+        "gitlab",
+        "gitlab stack",
+        "gitlab CI",
+        "docker compose gitlab"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "community",
+      "description": "Complete GitLab stack management: create projects, generate service configs, manage Docker secrets, and validate stacks before deployment. Use when creating Docker stack projects, generating nginx/PostgreSQL/Redis configs, managing secrets, validating stack architecture, or ensuring deployment readiness."
+    },
+    {
+      "id": "monitoring-sre",
+      "name": "Monitoring & SRE",
+      "category": "devops",
+      "triggers": [
+        "monitoring",
+        "observability",
+        "SRE",
+        "SLI",
+        "SLO",
+        "alerting",
+        "metrics",
+        "traces",
+        "logs"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "community",
+      "toolImportance": {
+        "datadog": "optional"
+      },
+      "description": "Use when setting up monitoring, logging, metrics, tracing, alerting, SLOs, error budgets, or incident management. Invoke for Prometheus/Grafana, OpenTelemetry, dashboards, chaos engineering, capacity planning, toil reduction, on-call, and Datadog optimization."
+    },
+    {
+      "id": "playwright-testing",
+      "name": "Playwright Testing",
+      "category": "testing",
+      "triggers": [
+        "Playwright",
+        "E2E test",
+        "end-to-end",
+        "browser testing",
+        "automation",
+        "UI testing",
+        "visual testing"
+      ],
+      "cli": null,
+      "mcp": "playwright",
+      "plugin": "playwright-plugin",
+      "source": "community",
+      "toolImportance": {
+        "playwright": "essential"
+      },
+      "relatedPlugins": [
+        "webapp-testing-plugin"
+      ],
+      "description": "Use when writing E2E tests with Playwright, setting up test infrastructure, or debugging flaky browser tests. Invoke for Playwright API patterns, Page Object Model, selectors, network mocking, visual testing, mobile testing, CI/CD integration, and advanced Playwright techniques.",
+      "dependencies": {
+        "recommended": [
+          "qa-test-planner",
+          "webapp-testing"
+        ]
+      }
+    },
+    {
+      "id": "design-review",
+      "name": "Design Review",
+      "category": "design",
+      "triggers": [
+        "design review",
+        "UI review",
+        "UX review",
+        "design audit",
+        "web design guidelines"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "community",
+      "description": "Comprehensive UI/UX design review with accessibility analysis and web interface guidelines compliance. Use when asked to review UI/UX designs, check accessibility, audit design, review wireframes/mockups/prototypes, check WCAG compliance, or review a site against best practices."
+    },
+    {
+      "id": "git-workflow",
+      "name": "Git Workflow",
+      "category": "workflow",
+      "triggers": [
+        "commit",
+        "git commit",
+        "git workflow",
+        "PR",
+        "pull request",
+        "github",
+        "stage changes"
+      ],
+      "cli": "gh",
+      "mcp": "github",
+      "plugin": "git-workflow-plugin",
+      "source": "softaworks",
+      "toolImportance": {
+        "gh": "essential",
+        "github": "recommended"
+      },
+      "relatedPlugins": [
+        "webapp-testing-plugin"
+      ],
+      "description": "Git and GitHub lifecycle: quality commits with Conventional Commits, PRs, releases, issues, and GitHub Actions via gh CLI and GitHub MCP. Triggers on: commit, stage changes, split commits, push to GitHub, create PR, create release, create repo, GitHub Actions, tag version, gh."
+    },
+    {
+      "id": "debugging",
+      "name": "Debugging",
+      "category": "workflow",
+      "triggers": [
+        "debug",
+        "bug",
+        "error",
+        "investigate",
+        "root cause",
+        "stack trace"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "community",
+      "toolImportance": {
+        "github": "optional"
+      },
+      "relatedPlugins": [
+        "git-workflow-plugin"
+      ],
+      "description": "Systematic root-cause debugging methodology. Use when investigating errors, analyzing stack traces, fixing bugs, or troubleshooting unexpected behavior. Triggers on: 'debug', 'fix bug', 'error', 'not working', 'troubleshoot', 'crash', 'exception', 'stack trace', 'root cause'."
+    },
+    {
+      "id": "security-code-review",
+      "name": "Security Code Review",
+      "category": "security",
+      "triggers": [
+        "security review",
+        "security audit",
+        "secure code",
+        "vulnerability review",
+        "code security"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "community",
+      "toolImportance": {
+        "github": "optional"
+      },
+      "relatedPlugins": [
+        "git-workflow-plugin"
+      ],
+      "description": "Use when performing security analysis, code audits, PR security review, or implementing secure code. Invoke for security audit, vulnerability review, OWASP prevention, auth implementation, diff review, threat modeling."
+    },
+    {
+      "id": "graphql-pro",
+      "name": "GraphQL Pro",
+      "category": "backend",
+      "triggers": [
+        "GraphQL",
+        "Apollo Federation",
+        "GraphQL schema",
+        "Apollo Client",
+        "Apollo Server",
+        "GraphQL resolvers",
+        "DataLoader",
+        "GraphQL subscriptions",
+        "GraphQL codegen",
+        "GraphQL mutations",
+        "GraphQL fragments"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": null,
+      "source": "community",
+      "toolImportance": {
+        "postgres": "recommended",
+        "context7": "recommended"
+      },
+      "description": "Use when designing GraphQL schemas, writing queries/mutations, working with Apollo (Server or Client), Federation, codegen, DataLoader, subscriptions, cache updates, or optimistic responses."
+    },
+    {
+      "id": "database-pro",
+      "name": "Database Pro",
+      "category": "backend",
+      "triggers": [
+        "database",
+        "schema design",
+        "SQL",
+        "query optimization",
+        "ERD",
+        "database design",
+        "slow query"
+      ],
+      "cli": null,
+      "mcp": "postgres",
+      "plugin": null,
+      "source": "softaworks",
+      "toolImportance": {
+        "postgres": "essential"
+      },
+      "description": "Design and optimize database schemas for SQL and NoSQL. Schema design, normalization, indexing strategies, query optimization, execution plan analysis, migration patterns, performance tuning, slow query diagnosis, partitioning, and configuration tuning. Supports PostgreSQL and MySQL."
+    },
+    {
+      "id": "ask-questions-first",
+      "name": "Ask Questions First",
+      "category": "workflow",
+      "triggers": [
+        "underspecified",
+        "ambiguous requirements",
+        "clarify requirements",
+        "ask questions"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "ask-questions-first-plugin",
+      "source": "trailofbits",
+      "description": "Use when requirements are underspecified or ambiguous. Invoke for clarification, requirements gathering, specification questions."
+    },
+    {
+      "id": "browser-automation",
+      "name": "Browser Automation",
+      "category": "workflow",
+      "triggers": [
+        "browser automation",
+        "chrome automation",
+        "screenshots",
+        "web interaction",
+        "form filling"
+      ],
+      "cli": null,
+      "mcp": "claude-in-chrome",
+      "plugin": "browser-automation-plugin",
+      "source": "nickmohler",
+      "toolImportance": {
+        "claude-in-chrome": "essential"
+      },
+      "relatedPlugins": [
+        "webapp-testing-plugin"
+      ],
+      "description": "Control Chrome browser for automation, testing, screenshots, and web interaction. Use when you need to navigate websites, fill forms, click elements, or capture screenshots."
+    },
+    {
+      "id": "culture-index",
+      "name": "Culture Index",
+      "category": "utilities",
+      "triggers": [
+        "culture index",
+        "behavioral assessment",
+        "team dynamics",
+        "hiring profile"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "culture-index-plugin",
+      "source": "trailofbits",
+      "description": "Use when interpreting Culture Index survey results. Invoke for Culture Index profiles, team dynamics, hiring profiles, burnout analysis."
+    },
+    {
+      "id": "dwarf-expert",
+      "name": "DWARF Expert",
+      "category": "utilities",
+      "triggers": [
+        "DWARF",
+        "debug info",
+        "readelf",
+        "dwarfdump",
+        "binary analysis"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "dwarf-expert-plugin",
+      "source": "trailofbits",
+      "description": "Use when analyzing DWARF debug files or understanding DWARF format. Invoke for DWARF, debug info, readelf, dwarfdump, binary analysis."
+    },
+    {
+      "id": "security-audit-context",
+      "name": "Security Audit Context",
+      "category": "security",
+      "triggers": [
+        "security audit context",
+        "deep code analysis",
+        "audit context",
+        "line-by-line review"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-audit-context-plugin",
+      "source": "trailofbits",
+      "description": "Use when building deep architectural context before vulnerability hunting. Invoke for security audit, code analysis, audit context, line-by-line review."
+    },
+    {
+      "id": "security-differential-review",
+      "name": "Security Differential Review",
+      "category": "security",
+      "triggers": [
+        "differential review",
+        "PR security review",
+        "diff security",
+        "commit security review"
+      ],
+      "cli": null,
+      "mcp": null,
+      "plugin": "security-differential-review-plugin",
+      "source": "trailofbits",
+      "toolImportance": {
+        "github": "optional"
+      },
+      "relatedPlugins": [
+        "git-workflow-plugin"
+      ],
+      "description": "Use when performing security-focused review of code changes. Invoke for PR review, diff security analysis, commit review, change audit."
+    },
+    {
+      "id": "context7",
+      "name": "Context7",
+      "category": "integrations",
+      "triggers": [
+        "get docs",
+        "fetch documentation",
+        "library docs",
+        "context7",
+        "live documentation"
+      ],
+      "description": "Pull live, up-to-date documentation for any library or framework. Use when you need current API references, before generating code for unfamiliar libraries, or when explicitly asked for docs.",
+      "cli": null,
+      "mcp": "context7",
+      "plugin": "context7-plugin",
+      "source": "nickmohler"
+    },
+    {
+      "id": "playwright",
+      "name": "Playwright",
+      "category": "testing",
+      "triggers": [
+        "browser automation",
+        "E2E testing",
+        "playwright",
+        "screenshot",
+        "automate browser"
+      ],
+      "description": "Browser automation for testing and web interaction. Use for E2E testing, screenshot capture, form filling, and automated browser workflows.",
+      "cli": null,
+      "mcp": "playwright",
+      "plugin": "playwright-plugin",
+      "source": "nickmohler"
+    },
+    {
+      "id": "remotion",
+      "name": "Remotion",
+      "category": "design",
+      "triggers": [
+        "create video",
+        "video generation",
+        "remotion",
+        "programmatic video",
+        "video from React"
+      ],
+      "description": "Create videos programmatically using React components. Use for YouTube intros, product demos, social clips, and animated content.",
+      "cli": null,
+      "mcp": "remotion",
+      "plugin": "remotion-plugin",
+      "source": "nickmohler"
+    },
+    {
+      "id": "memory-graph",
+      "name": "Memory Graph",
+      "category": "utilities",
+      "triggers": [
+        "remember",
+        "memory",
+        "knowledge graph",
+        "persistent memory",
+        "recall"
+      ],
+      "description": "Persistent knowledge graph for storing entities, relations, and observations across sessions. Use for explicit memory management, querying stored knowledge, or manual memory operations.",
+      "cli": null,
+      "mcp": "memory",
+      "plugin": "memory-plugin",
+      "source": "nickmohler"
     }
   ],
+  "companionPlugins": {
+    "source": "anthropic",
+    "repo": "anthropics/knowledge-work-plugins",
+    "license": "Apache-2.0",
+    "installCommand": "claude plugins add knowledge-work-plugins/{id}",
+    "description": "Enterprise knowledge-work plugins by Anthropic. Complement Rising Tides dev skills.",
+    "plugins": [
+      {
+        "id": "productivity",
+        "name": "Productivity",
+        "triggers": [
+          "tasks",
+          "calendar",
+          "daily planning",
+          "meeting notes",
+          "project management"
+        ]
+      },
+      {
+        "id": "sales",
+        "name": "Sales",
+        "triggers": [
+          "CRM",
+          "pipeline",
+          "deals",
+          "outreach",
+          "prospects",
+          "salesforce"
+        ]
+      },
+      {
+        "id": "customer-support",
+        "name": "Customer Support",
+        "triggers": [
+          "support tickets",
+          "helpdesk",
+          "customer issues",
+          "intercom"
+        ]
+      },
+      {
+        "id": "product-management",
+        "name": "Product Management",
+        "triggers": [
+          "PRD",
+          "product roadmap",
+          "user stories",
+          "backlog",
+          "feature specs"
+        ]
+      },
+      {
+        "id": "marketing",
+        "name": "Marketing (Enterprise)",
+        "triggers": [
+          "marketing campaign",
+          "brand strategy",
+          "content calendar",
+          "campaign plan"
+        ]
+      },
+      {
+        "id": "legal",
+        "name": "Legal",
+        "triggers": [
+          "contract review",
+          "NDA",
+          "compliance",
+          "legal analysis"
+        ]
+      },
+      {
+        "id": "finance",
+        "name": "Finance",
+        "triggers": [
+          "financial analysis",
+          "budget",
+          "forecast",
+          "journal entries",
+          "reconciliation"
+        ]
+      },
+      {
+        "id": "data",
+        "name": "Data",
+        "triggers": [
+          "SQL",
+          "data analysis",
+          "dashboard",
+          "metrics",
+          "reporting",
+          "data warehouse"
+        ]
+      },
+      {
+        "id": "enterprise-search",
+        "name": "Enterprise Search",
+        "triggers": [
+          "search documents",
+          "knowledge base",
+          "internal search"
+        ]
+      },
+      {
+        "id": "bio-research",
+        "name": "Bio Research",
+        "triggers": [
+          "genomics",
+          "lab protocols",
+          "research papers",
+          "biology"
+        ]
+      },
+      {
+        "id": "cowork-plugin-management",
+        "name": "Plugin Management",
+        "triggers": [
+          "manage plugins",
+          "configure cowork"
+        ]
+      }
+    ]
+  },
   "sources": {
     "anthropic": {
       "name": "Anthropic",
@@ -1041,13 +5055,63 @@
     },
     "nickmohler": {
       "name": "Nick Mohler",
-      "count": 12,
+      "count": 20,
       "description": "CLI integrations and orchestration"
     },
     "obra": {
       "name": "obra/superpowers",
       "count": 1,
       "description": "Debugging methodology"
+    },
+    "trailofbits": {
+      "name": "Trail of Bits",
+      "count": 23,
+      "description": "Security skills and analysis tools"
+    },
+    "harperaa": {
+      "name": "harperaa",
+      "count": 7,
+      "description": "Next.js security patterns"
+    },
+    "rknall": {
+      "name": "rknall",
+      "count": 6,
+      "description": "Docker validation and GitLab workflows"
+    },
+    "antonbabenko": {
+      "name": "Anton Babenko",
+      "count": 1,
+      "description": "Terraform IaC expertise"
+    },
+    "chriswiles": {
+      "name": "Chris Wiles",
+      "count": 5,
+      "description": "Claude Code showcase patterns"
+    },
+    "ahmedasmar": {
+      "name": "Ahmed Asmar",
+      "count": 6,
+      "description": "DevOps and SRE skills"
+    },
+    "jeffallan": {
+      "name": "Jeff Allan",
+      "count": 70,
+      "description": "Language and framework expertise"
+    },
+    "lackeyjb": {
+      "name": "lackeyjb",
+      "count": 1,
+      "description": "Playwright testing patterns"
+    },
+    "ckreiling": {
+      "name": "ckreiling",
+      "count": 0,
+      "description": "Docker MCP server"
+    },
+    "ko1ynnky": {
+      "name": "ko1ynnky",
+      "count": 0,
+      "description": "GitHub Actions MCP server"
     }
   }
 }

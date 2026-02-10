@@ -26,6 +26,7 @@ Enable Tool Search for additional optimization: `export ENABLE_TOOL_SEARCH=auto`
 | MCP | Purpose | Recommended Scope | Skills That Use It |
 |-----|---------|-------------------|-------------------|
 | **memory** | Persistent knowledge graph | Global (user) | (all projects) |
+| **claude-in-chrome** | Full browser control | Built-in | browser-automation |
 | **context7** | Live documentation | Project | react-dev, frontend-design, mcp-builder |
 | **playwright** | Browser automation | Project | webapp-testing |
 | **github** | Repository operations | Project or Built-in | commit-work |
@@ -71,6 +72,48 @@ claude mcp add memory --scope user
 - Windows (WSL): `/mnt/c/Users/[USERNAME]/Desktop/claude-memory.jsonl`
 - Mac: `/Users/[USERNAME]/Desktop/claude-memory.jsonl`
 - Linux: `/home/[USERNAME]/Desktop/claude-memory.jsonl`
+
+---
+
+### Claude in Chrome MCP
+
+**Scope:** Built-in — no installation needed, just enable
+
+**IMPORTANT:** This is a **built-in MCP**, not an npm package. It connects to the Claude in Chrome browser extension.
+
+**Setup Steps:**
+
+1. **Install Chrome extension** from https://claude.ai/chrome
+
+2. **Enable in Claude Code** (one of these options):
+   ```bash
+   # Option A: Launch with flag
+   claude --chrome
+
+   # Option B: Enable permanently in ~/.claude.json
+   "claudeInChromeDefaultEnabled": true
+   ```
+
+3. **Restart Chrome** after installing extension
+
+4. **Restart Claude Code** to connect
+
+**Platform Requirements:**
+
+| Platform | Works? | Notes |
+|----------|--------|-------|
+| Windows (PowerShell) | ✅ Yes | Native support |
+| macOS | ✅ Yes | May conflict with Claude.app Cowork |
+| Linux | ✅ Yes | Native support |
+| WSL | ❌ No | Cannot bridge to Windows Chrome |
+
+**WSL Users:** Claude in Chrome does NOT work from WSL. Run Claude Code from Windows PowerShell instead.
+
+**Verify:** Ask Claude "Get my browser tabs" — if connected, it will list your open Chrome tabs.
+
+**Troubleshooting:** Use the `chrome-extension-troubleshooting` skill.
+
+**Skills that use it:** browser-automation
 
 ---
 
@@ -230,6 +273,7 @@ claude mcp add remotion --scope project
 
 | Skill | MCP | What the MCP Provides |
 |-------|-----|----------------------|
+| **browser-automation** | claude-in-chrome | Full Chrome browser control |
 | **react-dev** | context7 | Current React documentation |
 | **frontend-design** | context7 | Framework documentation |
 | **mcp-builder** | context7 | MCP SDK documentation |

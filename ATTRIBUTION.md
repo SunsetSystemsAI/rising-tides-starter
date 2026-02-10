@@ -2,7 +2,7 @@
 
 > **Credit where credit is due.** This file documents the original sources for all skills in this collection.
 
-**Last Updated:** January 23, 2026
+**Last Updated:** January 31, 2026
 
 ---
 
@@ -166,6 +166,226 @@ Debugging methodology adapted from Jesse Vincent's superpowers repository.
 
 ---
 
+### Trail of Bits
+Security analysis and vulnerability detection skills.
+
+| Skill | Description |
+|-------|-------------|
+| security-audit-context | Security audit context building |
+| security-burpsuite-parser | BurpSuite project parsing |
+| security-differential-review | Differential security review |
+| security-entry-points | Entry point analysis |
+| security-firebase-apk | Firebase APK scanning |
+| security-fix-review | Security fix review |
+| security-insecure-defaults | Insecure defaults detection |
+| security-sharp-edges | API sharp edges analysis |
+| security-smart-contracts | Smart contract security |
+| security-spec-compliance | Spec-to-code compliance |
+| security-static-analysis | Static analysis with Semgrep |
+| security-testing-handbook | Security testing handbook |
+| security-timing-analysis | Timing analysis |
+| security-variant-analysis | Variant analysis |
+| semgrep-rule-creator | Semgrep rule creation |
+| semgrep-rule-variants | Semgrep rule variants |
+| yara-rule-authoring | YARA rule authoring |
+| modern-python | Modern Python patterns |
+| property-based-testing | Property-based testing |
+| dwarf-expert | DWARF binary analysis |
+| culture-index | Team culture patterns |
+| ask-questions-first | Clarification-first workflow |
+| secure-code-guardian | Secure coding guardian |
+
+**Source:** [github.com/trailofbits/skills](https://github.com/trailofbits/skills)
+**License:** Apache-2.0
+
+---
+
+### Anton Babenko
+Terraform IaC expertise from terraform-best-practices.com.
+
+| Skill | Description |
+|-------|-------------|
+| terraform-iac | Terraform and OpenTofu IaC |
+
+**Source:** [github.com/antonbabenko/terraform-skill](https://github.com/antonbabenko/terraform-skill)
+**License:** Apache-2.0
+
+---
+
+### rknall
+Docker validation and GitLab stack management.
+
+| Skill | Description |
+|-------|-------------|
+| docker-validation | Docker/Compose validation |
+| gitlab-stack-config | GitLab stack configuration |
+| gitlab-stack-creator | GitLab stack creation |
+| gitlab-stack-secrets | GitLab secrets management |
+| gitlab-stack-validator | GitLab stack validation |
+| newt-blueprint | Newt blueprint generation |
+
+**Source:** [github.com/rknall/claude-skills](https://github.com/rknall/claude-skills)
+**License:** MIT
+
+---
+
+### harperaa
+Next.js security patterns based on OWASP guidelines.
+
+| Skill | Description |
+|-------|-------------|
+| nextjs-security-overview | Next.js security overview |
+| nextjs-auth-security | Authentication security |
+| nextjs-csrf-protection | CSRF protection |
+| nextjs-input-validation | Input validation |
+| nextjs-security-headers | Security headers |
+| nextjs-rate-limiting | Rate limiting |
+| nextjs-payment-security | Payment security |
+| nextjs-dependency-security | Dependency security |
+| nextjs-error-handling | Error handling |
+| nextjs-security-testing | Security testing |
+| nextjs-security-operations | Security operations |
+
+**Source:** [github.com/harperaa/secure-claude-skills](https://github.com/harperaa/secure-claude-skills)
+**License:** MIT
+
+---
+
+### Chris Wiles
+Claude Code showcase patterns and best practices.
+
+| Skill | Description |
+|-------|-------------|
+| chrome-extension-troubleshooting | Chrome extension debugging |
+| react-ui-states | React UI state patterns |
+| design-tokens-patterns | Design token patterns |
+| ask-questions-first | Clarification-first workflow |
+| feature-forge | Feature development workflow |
+
+**Source:** [github.com/ChrisWiles/claude-code-showcase](https://github.com/ChrisWiles/claude-code-showcase)
+**License:** MIT
+
+---
+
+### Ahmed Asmar
+DevOps and SRE operational skills.
+
+| Skill | Description |
+|-------|-------------|
+| cicd-pipelines | CI/CD pipeline design |
+| k8s-troubleshooter | Kubernetes troubleshooting |
+| monitoring-observability | Monitoring and observability |
+| gitops-workflows | GitOps workflows |
+| devops-terraform | DevOps Terraform patterns |
+| sre-engineer | SRE engineering |
+
+**Source:** [github.com/ahmedasmar/devops-claude-skills](https://github.com/ahmedasmar/devops-claude-skills)
+**License:** MIT
+
+---
+
+### Jeff Allan
+Comprehensive language and framework expertise skills.
+
+| Skill | Description |
+|-------|-------------|
+| angular-architect | Angular architecture |
+| api-designer | API design patterns |
+| architecture-designer | Software architecture |
+| aws-cost-optimization | AWS cost optimization |
+| chaos-engineer | Chaos engineering |
+| cli-developer | CLI development |
+| cloud-architect | Cloud architecture |
+| code-documenter | Code documentation |
+| code-reviewer | Code review |
+| cpp-pro | C++ expertise |
+| csharp-developer | C# development |
+| database-optimizer | Database optimization |
+| debugging-wizard | Advanced debugging |
+| django-expert | Django framework |
+| dotnet-core-expert | .NET Core development |
+| embedded-systems | Embedded systems |
+| fastapi-expert | FastAPI framework |
+| fine-tuning-expert | ML fine-tuning |
+| flutter-expert | Flutter development |
+| fullstack-guardian | Full-stack oversight |
+| golang-pro | Go expertise |
+| graphql-architect | GraphQL architecture |
+| graphql-patterns | GraphQL patterns |
+| java-architect | Java architecture |
+| javascript-pro | JavaScript expertise |
+| jest-testing-patterns | Jest testing patterns |
+| kotlin-specialist | Kotlin development |
+| kubernetes-specialist | Kubernetes management |
+| laravel-specialist | Laravel framework |
+| legacy-modernizer | Legacy modernization |
+| mcp-developer | MCP server development |
+| microservices-architect | Microservices architecture |
+| ml-pipeline | ML pipeline design |
+| modern-python | Modern Python |
+| monitoring-expert | Monitoring expertise |
+| nestjs-expert | NestJS framework |
+| pandas-pro | Pandas data analysis |
+| php-pro | PHP expertise |
+| playwright-expert | Playwright testing |
+| prompt-engineer | Prompt engineering |
+| python-pro | Python expertise |
+| rag-architect | RAG architecture |
+| rails-expert | Ruby on Rails |
+| react-native-expert | React Native development |
+| rust-engineer | Rust engineering |
+| salesforce-developer | Salesforce development |
+| shopify-expert | Shopify development |
+| spark-engineer | Apache Spark |
+| spring-boot-engineer | Spring Boot |
+| sql-pro | SQL expertise |
+| sre-engineer | SRE engineering |
+| svg-logo-designer | SVG logo design |
+| swift-expert | Swift development |
+| terraform-engineer | Terraform engineering |
+| test-master | Test strategy |
+| typescript-pro | TypeScript expertise |
+| uiux-design-review | UI/UX design review |
+| vue-expert | Vue.js development |
+| web-design-builder | Web design building |
+| wordpress-pro | WordPress development |
+| formik-patterns | Formik form patterns |
+
+**Source:** [github.com/Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills)
+**License:** MIT
+
+---
+
+### lackeyjb
+Playwright testing patterns.
+
+| Skill | Description |
+|-------|-------------|
+| playwright-patterns | Playwright API patterns |
+
+**Source:** [github.com/lackeyjb/playwright-skill](https://github.com/lackeyjb/playwright-skill)
+**License:** MIT
+
+---
+
+### ckreiling
+Docker MCP server for container management.
+
+**Source:** [github.com/ckreiling/mcp-server-docker](https://github.com/ckreiling/mcp-server-docker)
+**License:** MIT
+**Contribution:** Docker MCP server integration
+
+---
+
+### ko1ynnky
+GitHub Actions MCP server.
+
+**Source:** [github.com/ko1ynnky/github-actions-mcp-server](https://github.com/ko1ynnky/github-actions-mcp-server)
+**License:** MIT
+**Contribution:** GitHub Actions MCP server integration
+
+---
+
 ## Security Note
 
 All skills have been reviewed for safety. Original sources are linked above for verification and updates.
@@ -198,7 +418,17 @@ If you create a useful skill:
 | Softaworks | 40 | Dev workflow, architecture |
 | Nick Mohler | 15 | Orchestration, video, CLI integrations |
 | obra/superpowers | 1 | Debugging methodology |
-| **Total** | **95** | |
+| Trail of Bits | 23 | Security analysis, vulnerability detection |
+| Anton Babenko | 1 | Terraform IaC |
+| rknall | 6 | Docker, GitLab stack management |
+| harperaa | 11 | Next.js security patterns |
+| Chris Wiles | 5 | Claude Code patterns |
+| Ahmed Asmar | 6 | DevOps, SRE |
+| Jeff Allan | 60 | Language and framework expertise |
+| lackeyjb | 1 | Playwright testing |
+| ckreiling | — | Docker MCP server |
+| ko1ynnky | — | GitHub Actions MCP server |
+| **Total** | **~208** | |
 
 ---
 
@@ -213,6 +443,16 @@ All curated skills use permissive open-source licenses that allow commercial use
 | **Corey Haines** | MIT | ✅ Yes |
 | **Softaworks** | MIT | ✅ Yes |
 | **obra/superpowers** | MIT | ✅ Yes |
+| **Trail of Bits** | Apache-2.0 | ✅ Yes |
+| **Anton Babenko** | Apache-2.0 | ✅ Yes |
+| **rknall** | MIT | ✅ Yes |
+| **harperaa** | MIT | ✅ Yes |
+| **Chris Wiles** | MIT | ✅ Yes |
+| **Ahmed Asmar** | MIT | ✅ Yes |
+| **Jeff Allan** | MIT | ✅ Yes |
+| **lackeyjb** | MIT | ✅ Yes |
+| **ckreiling** | MIT | ✅ Yes |
+| **ko1ynnky** | MIT | ✅ Yes |
 | **Nick Mohler** | MIT | ✅ Yes |
 
 **MIT License Requirements:**

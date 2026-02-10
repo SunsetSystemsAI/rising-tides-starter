@@ -1,0 +1,10 @@
+{
+  "name": "security-firebase-apk-plugin",
+  "version": "2.1.0",
+  "description": "Scan Android APKs for Firebase security misconfigurations including open databases, storage buckets, authentication issues, and exposed cloud functions. For authorized security research only.",
+  "author": {
+    "name": "Nick Sellier",
+    "email": "",
+    "url": ""
+  }
+}
