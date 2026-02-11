@@ -14,10 +14,10 @@ The Rising Tides system uses **progressive disclosure** — you don't load all s
 ┌─────────────────────────────────────────────────────────────┐
 │                    RISING TIDES PACK                         │
 ├─────────────────────────────────────────────────────────────┤
-│  79 Skills     │  Marketing, Frontend, Backend, Workflow    │
-│  12 Plugins    │  Bundled skill + MCP packages              │
-│   9 CLIs       │  gh, stripe, vercel, firebase...           │
-│   8 MCPs       │  context7, playwright, github...           │
+│  170 Skills    │  Marketing, Frontend, Backend, Workflow    │
+│   37 Plugins   │  Bundled skill + MCP packages              │
+│    9 CLIs      │  gh, stripe, vercel, firebase...           │
+│   17 MCPs      │  context7, playwright, github...           │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -186,10 +186,10 @@ Full list: productivity, sales, customer-support, product-management, marketing,
 │   │   └── SKILL.md
 │   ├── copywriting/
 │   │   └── SKILL.md
-│   └── ... (79 folders)
+│   └── ... (170 folders)
 ├── plugins/                        # Plugin bundles
 │   ├── react-dev-plugin/
-│   └── ... (12 folders)
+│   └── ... (37 folders)
 ├── SKILLS_INDEX.json               # Master skill catalog
 ├── MCP_REGISTRY.md                 # MCP configurations
 └── ATTRIBUTION.md                  # Skill sources
@@ -246,7 +246,7 @@ See `MCP_REGISTRY.md` for all available MCPs and configurations.
 | Full SKILL.md content | 500-2000 per skill | On invoke only |
 | MCP tool schemas | ~500 per tool | On-demand (with Tool Search) |
 
-**You're paying ~4% context for all skills.** Full content loads only when invoked.
+**You're paying ~6% context for all skills.** Full content loads only when invoked.
 
 ---
 
@@ -333,7 +333,7 @@ Close and reopen your terminal, then try again.
 
 Verify installation:
 ```bash
-ls ~/.claude/skills | wc -l  # Should be 79+
+ls ~/.claude/skills | wc -l  # Should be 170+
 cat ~/.claude/SKILLS_INDEX.json | head
 ```
 
@@ -400,8 +400,8 @@ New user starter pack/
 ├── ATTRIBUTION.md              # Skill sources
 ├── SECURITY.md                 # Security model
 │
-├── skills/                     # All 79 skills (bundled)
-├── plugins/                    # All 12 plugins (bundled)
+├── skills/                     # All 170 skills (bundled)
+├── plugins/                    # All 37 plugins (bundled)
 │
 ├── docs/
 │   ├── QUICKSTART.md           # 5-minute manual setup
