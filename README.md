@@ -426,15 +426,27 @@ export ENABLE_TOOL_SEARCH=true
 
 ## Optional: Anthropic Enterprise Plugins
 
-After setup, you can also install Anthropic's enterprise knowledge-work plugins:
+Rising Tides is **developer-focused**. For non-dev enterprise workflows, Anthropic offers HTTP-based MCP plugins that connect to services like Slack, Notion, and Salesforce:
 
+| Plugin | What It Provides | Rising Tides Overlap |
+|--------|------------------|---------------------|
+| `productivity` | Slack, Notion, Calendar connectors | We have: daily-meeting-update, session-handoff |
+| `sales` | Salesforce CRM, HubSpot pipelines | We have: copywriting, email-sequence (not CRM) |
+| `customer-support` | Zendesk, Intercom tickets | We have: professional-communication (not tickets) |
+| `product-management` | Jira, Linear integration | We have: requirements-clarity, qa-test-planner |
+| `marketing` | Enterprise marketing tools | We have: 23 marketing skills (full coverage) |
+| `legal` | Contract review, compliance | **Gap** — Rising Tides doesn't cover this |
+| `finance` | Financial analysis, reporting | **Gap** — Rising Tides doesn't cover this |
+| `data` | Data warehouse connectors | We have: database-schema-designer, analytics-tracking |
+
+**Install if you need enterprise connectors:**
 ```bash
 claude plugins add knowledge-work-plugins/productivity
-claude plugins add knowledge-work-plugins/sales
-claude plugins add knowledge-work-plugins/data
+claude plugins add knowledge-work-plugins/legal
+claude plugins add knowledge-work-plugins/finance
 ```
 
-These cover sales, legal, finance, and product management — complementing Rising Tides' developer-focused skills.
+**Skip if Rising Tides already covers your need** — don't install `marketing` if you're using our 23 marketing skills.
 
 ---
 
