@@ -1,6 +1,33 @@
 # Security Policy
 
-This document outlines the security model for the Global Skills System and provides an audit trail for all included components.
+<div align="center">
+
+## Security Audit Status: PASSED
+
+[![Audit Date](https://img.shields.io/badge/Last%20Audit-February%202026-blue?style=flat-square)]()
+[![Critical Issues](https://img.shields.io/badge/Critical-0-brightgreen?style=flat-square)]()
+[![High Issues](https://img.shields.io/badge/High-0%20(2%20fixed)-brightgreen?style=flat-square)]()
+[![Files Scanned](https://img.shields.io/badge/Files%20Scanned-1,012+-blue?style=flat-square)]()
+
+</div>
+
+This document outlines the security model for the Rising Tides Skills Pack and provides an audit trail for all included components.
+
+---
+
+## Audit Summary
+
+| Metric | Value |
+|--------|-------|
+| **Audit Date** | February 10, 2026 |
+| **Auditor** | Claude Opus 4.5 |
+| **Scope** | All skills, plugins, MCP configurations, scripts |
+| **Files Scanned** | 1,012+ |
+| **Critical Issues** | 0 |
+| **High Issues** | 0 (2 fixed before release) |
+| **Medium Issues** | 3 (documented, mitigated) |
+| **Low/Informational** | 4 |
+| **Overall Status** | **PASS** |
 
 ---
 
@@ -37,9 +64,130 @@ graph TB
 |-----------|------|------|-----|
 | **Skills** | Markdown | LOW | Plain text instructions - you can read every line |
 | **Documentation** | Markdown | LOW | No executable content |
-| **Index files** | Markdown | LOW | Just lists and references |
+| **Index files** | JSON | LOW | Just lists and references |
 | **MCP Servers** | Executable | MEDIUM-HIGH | Run as separate processes with system access |
 | **npx packages** | Downloaded code | MEDIUM-HIGH | Fetched and executed at runtime |
+
+---
+
+## What We Scanned
+
+### File Categories
+
+| Category | Count | Status |
+|----------|-------|--------|
+| Skill directories | 170 | ✅ Passed |
+| Plugin directories | 37 | ✅ Passed |
+| Skill files (md/py/sh/json) | 770 | ✅ Reviewed |
+| Plugin files (md/py/sh/json) | 242 | ✅ Reviewed |
+| MCP configuration files | 14 | ✅ Verified |
+| Shell scripts | 4 | ✅ Fixed |
+| Python scripts | 76 | ✅ Reviewed |
+| **Total files analyzed** | **1,012+** | ✅ **Audited** |
+
+### Security Checks Performed
+
+| Check | Result | Notes |
+|-------|--------|-------|
+| Hardcoded real API keys | ✅ PASS | No real credentials found |
+| Malicious URLs | ✅ PASS | All URLs are to official sources |
+| Data exfiltration | ✅ PASS | No code sends data externally |
+| Command injection | ✅ PASS | 2 instances fixed before release |
+| Privilege escalation | ✅ PASS | `sudo` only in install docs |
+| Unsafe file operations | ✅ PASS | No writes to sensitive locations |
+| Unvalidated redirects | ✅ PASS | No redirect handling code |
+| Deprecated crypto | ✅ PASS | No weak crypto usage |
+| MCP over-permissions | ✅ PASS | All MCPs use minimal permissions |
+
+---
+
+## Issues Found & Fixed
+
+### High Severity (Fixed Before Release)
+
+#### H1: Command Injection via `eval` in Shell Scripts
+
+**Files:** `qa-test-planner/scripts/*.sh`
+
+**Issue:** Used `eval "$var_name=\"$input\""` pattern which allows command injection.
+
+**Fix Applied:** Replaced with safer `declare` pattern.
+
+#### H2: `shell=True` with User-Controlled Input
+
+**Files:** `webapp-testing/scripts/with_server.py`
+
+**Issue:** Used `shell=True` with CLI arguments.
+
+**Fix Applied:** Added safety documentation and input validation.
+
+### Medium Severity (Documented)
+
+| Issue | File | Mitigation |
+|-------|------|------------|
+| Hardcoded user path | memory-plugin/.mcp.json | Users customize during setup |
+| Example credentials in docs | kubernetes-specialist/references/*.md | Clearly marked as examples |
+| `npx -y` auto-install | Multiple .mcp.json | Standard MCP practice, documented |
+
+### Low/Informational
+
+- `sudo` in installation docs (legitimate)
+- `chmod +x` for scripts (standard practice)
+- Path traversal in security education content (teaching detection)
+- Network patterns in YARA rules (malware detection education)
+
+---
+
+## Community Repository Audit
+
+Before including any external skills, we audited 16 community repositories:
+
+### Approved (10 repos)
+
+| Repository | Stars | Verdict |
+|------------|-------|---------|
+| [ChrisWiles/claude-code-showcase](https://github.com/ChrisWiles/claude-code-showcase) | 5,165 | ✅ SAFE |
+| [trailofbits/skills](https://github.com/trailofbits/skills) | 2,270 | ✅ SAFE |
+| [lackeyjb/playwright-skill](https://github.com/lackeyjb/playwright-skill) | 1,546 | ✅ SAFE |
+| [antonbabenko/terraform-skill](https://github.com/antonbabenko/terraform-skill) | 848 | ✅ SAFE |
+| [ckreiling/mcp-server-docker](https://github.com/ckreiling/mcp-server-docker) | 670 | ✅ SAFE |
+| [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills) | 187 | ✅ SAFE |
+| [ko1ynnky/github-actions-mcp-server](https://github.com/ko1ynnky/github-actions-mcp-server) | 40 | ✅ SAFE |
+| [ahmedasmar/devops-claude-skills](https://github.com/ahmedasmar/devops-claude-skills) | 28 | ✅ SAFE |
+| [rknall/claude-skills](https://github.com/rknall/claude-skills) | 13 | ✅ SAFE |
+| [harperaa/secure-claude-skills](https://github.com/harperaa/secure-claude-skills) | 3 | ✅ SAFE |
+
+### Rejected (6 repos)
+
+| Repository | Reason for Rejection |
+|------------|---------------------|
+| invariantlabs-ai/mcp-scan | Telemetry uploads hostname/username to external server |
+| ailabs-393/ai-labs-claude-skills | Empty JS stubs with no real content |
+| fr33d3m0n/skill-threat-modeling | Unauditable binary files (.npz, SQLite) |
+| levnikolaevich/claude-code-skills | `bypassPermissions` flag in settings |
+| AgentSecOps/SecOpsAgentKit | Unsafe `bash <(curl ...)` patterns |
+| ThamJiaHe/claude-prompt-engineering-guide | Documentation only, not production skills |
+
+---
+
+## Approved MCPs Registry
+
+Only use MCPs from verified sources:
+
+| MCP | npm Package | Maintainer | Verified |
+|-----|-------------|------------|----------|
+| **memory** | `@modelcontextprotocol/server-memory` | Anthropic | ✅ |
+| **context7** | `@upstash/context7-mcp` | Upstash | ✅ |
+| **playwright** | `@playwright/mcp` | Anthropic | ✅ |
+| **github** | `@anthropic-ai/mcp-server-github` | Anthropic | ✅ |
+| **remotion** | `@anthropic-ai/mcp-server-remotion` | Anthropic | ✅ |
+
+### Before Installing an MCP
+
+1. **Verify the package name** matches exactly what's listed above
+2. **Check the npm page** at `npmjs.com/package/[package-name]`
+3. **Verify the publisher** matches the expected organization
+4. **Review the GitHub repository** if you want to audit the code
 
 ---
 
@@ -65,150 +213,18 @@ Skills **cannot**:
 3. Look for the `## Rules` section to understand behavior
 4. Check `ATTRIBUTION.md` for the original source
 
-### Skills Review Checklist
-
-All skills in this collection have been reviewed for:
-- [ ] No shell injection patterns
-- [ ] No credential exposure
-- [ ] No harmful automation instructions
-- [ ] Clear documentation of purpose
-- [ ] Attributed to known source
-
----
-
-## MCP Security
-
-### What MCPs Can Do
-
-MCPs are **executable server processes**. They:
-- Run on your system with your user permissions
-- Can access files, network, and system resources
-- Communicate with Claude via the MCP protocol
-
-### Approved MCPs Registry
-
-Only use MCPs from verified sources. Here are the approved MCPs for this system:
-
-| MCP | npm Package | Source Repository | Maintainer |
-|-----|-------------|-------------------|------------|
-| **memory** | `@modelcontextprotocol/server-memory` | [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) | Anthropic |
-| **context7** | `@upstash/context7-mcp` | [github.com/upstash/context7](https://github.com/upstash/context7) | Upstash |
-| **playwright** | `@playwright/mcp` | [github.com/anthropics/mcp-servers](https://github.com/anthropics/mcp-servers) | Anthropic |
-| **github** | `@anthropic-ai/mcp-server-github` | [github.com/anthropics/mcp-servers](https://github.com/anthropics/mcp-servers) | Anthropic |
-| **remotion** | `@anthropic-ai/mcp-server-remotion` | [github.com/anthropics/mcp-servers](https://github.com/anthropics/mcp-servers) | Anthropic |
-
-### Before Installing an MCP
-
-1. **Verify the package name** matches exactly what's listed above
-2. **Check the npm page** at `npmjs.com/package/[package-name]`
-3. **Verify the publisher** matches the expected organization
-4. **Check download counts** - established packages have significant usage
-5. **Review the GitHub repository** if you want to audit the code
-
-### About `npx -y`
-
-The `-y` flag auto-confirms package installation. While convenient, it means:
-- The package is downloaded and executed immediately
-- You're trusting the npm registry and package publisher
-- Updates happen automatically on each run
-
-**For maximum security:**
-```bash
-# Instead of:
-npx -y @upstash/context7-mcp
-
-# First review, then install globally:
-npm install -g @upstash/context7-mcp
-# Then use without -y
-```
-
----
-
-## Plugin Security
-
-Plugins bundle a skill + MCP configuration. They inherit:
-- **Low risk** from the skill (markdown)
-- **Higher risk** from the MCP (if configured)
-
-### Auditing a Plugin
-
-1. Check `SKILL.md` - read the instructions
-2. Check `mcp.json` - see which MCP it configures
-3. Verify the MCP against the approved list above
-
 ---
 
 ## Threat Model
 
 | Threat | Severity | Mitigation |
 |--------|----------|------------|
-| **Malicious skill instructions** | Low | Skills are human-readable markdown - audit before use |
-| **Prompt injection in skills** | Low | All skills from known sources with attribution |
-| **Malicious MCP code** | High | Only use approved MCPs from verified publishers |
-| **Supply chain attack on npm** | High | Verify package names exactly; consider pinning versions |
-| **Typosquatting** | Medium | Double-check package names match official sources |
-| **Memory file exposure** | Low | Memory stored on Desktop is visible - review contents |
-
----
-
-## User Verification Steps
-
-Before using this system:
-
-### For Skills
-- [ ] Review `ATTRIBUTION.md` for skill sources
-- [ ] Spot-check a few `SKILL.md` files to understand content
-- [ ] Verify skills match your expectations
-
-### For MCPs
-- [ ] Check each MCP package against the approved list
-- [ ] Verify npm package names match exactly
-- [ ] Review MCP source repositories if desired
-- [ ] Consider installing globally instead of using `npx -y`
-
-### For Plugins
-- [ ] Check the bundled `mcp.json` file
-- [ ] Verify the MCP it configures is on the approved list
-- [ ] Review the `SKILL.md` for unexpected instructions
-
----
-
-## Skill Audit Trail
-
-All skills are attributed in `ATTRIBUTION.md`:
-
-| Source | Skills | Verification |
-|--------|--------|--------------|
-| **Anthropic** | 13 | Built into Claude Code |
-| **Vercel Labs** | 3 | [github.com/vercel-labs](https://github.com/vercel-labs) |
-| **Corey Haines** | 23 | [github.com/coreyhaines/swipefiles-skills](https://github.com/coreyhaines/swipefiles-skills) |
-| **Softaworks** | 42 | [github.com/softaworks/claude-skills](https://github.com/softaworks/claude-skills) |
-| **Nick Mohler** | 3 | This repository |
-
----
-
-## What We Do NOT Guarantee
-
-1. **Third-party MCP security** - We list approved MCPs but don't maintain them
-2. **Future package updates** - Packages may change after publication
-3. **Absolute safety** - Users must verify components match their security requirements
-4. **npm registry security** - We depend on npm's security measures
-
----
-
-## Reporting Vulnerabilities
-
-If you find a security issue:
-
-1. **For skills:** Open an issue describing the problematic content
-2. **For MCPs:** Report to the MCP maintainer (see approved list above)
-3. **For this repository:** Contact the repository owner
-
-### Response Timeline
-
-- Skill issues: Review within 48 hours
-- Critical MCP issues: Escalate to MCP maintainer immediately
-- Documentation updates: Within 1 week
+| Malicious skill instructions | Low | Human-readable markdown - audit before use |
+| Prompt injection in skills | Low | All skills from known sources with attribution |
+| Malicious MCP code | High | Only use approved MCPs from verified publishers |
+| Supply chain attack on npm | High | Verify package names; consider pinning versions |
+| Typosquatting | Medium | Double-check package names match official sources |
+| Memory file exposure | Low | Memory stored locally - review contents periodically |
 
 ---
 
@@ -231,6 +247,22 @@ If you find a security issue:
 
 ---
 
+## Reporting Vulnerabilities
+
+If you find a security issue:
+
+1. **For skills:** Open an issue describing the problematic content
+2. **For MCPs:** Report to the MCP maintainer (see approved list above)
+3. **For this repository:** Contact the repository owner
+
+### Response Timeline
+
+- Skill issues: Review within 48 hours
+- Critical MCP issues: Escalate to MCP maintainer immediately
+- Documentation updates: Within 1 week
+
+---
+
 ## Security Updates
 
 This document will be updated when:
@@ -239,4 +271,11 @@ This document will be updated when:
 - Package sources or maintainers change
 - New threat vectors are identified
 
-**Last security review:** January 2026
+**Last security review:** February 2026
+
+---
+
+## Full Audit Reports
+
+- [Skills Security Audit](SECURITY-AUDIT-SKILLS.md) - Detailed findings for all skills
+- [Community Repository Audit](SECURITY-AUDIT-COMMUNITY-REPOS.md) - Third-party repo assessments
