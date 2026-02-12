@@ -458,6 +458,84 @@ export ENABLE_TOOL_SEARCH=true
 
 ---
 
+## Uninstall
+
+We provide two uninstall options depending on what you need:
+
+### Option 1: Remove Skills Pack Only (Recommended)
+
+Removes Rising Tides content but **keeps Claude Code and all prerequisites** installed.
+
+**Use this when:** You pulled skills globally, ran `/recommend skills` to import what you need to your project, and now want to clean up the global installation.
+
+**Mac/Linux:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall-skills.sh -o /tmp/uninstall-skills.sh && bash /tmp/uninstall-skills.sh
+```
+
+**Windows (PowerShell):**
+```powershell
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall-skills.ps1' -OutFile "$env:TEMP\uninstall-skills.ps1"; & "$env:TEMP\uninstall-skills.ps1"
+```
+
+**What gets removed:**
+- `~/.claude/skills/` (187 skills)
+- `~/.claude/plugins/` (38 plugins)
+- `SKILLS_INDEX.json`
+- `MCP_REGISTRY.md`, `ATTRIBUTION.md`, `SECURITY.md`
+
+**What stays intact:**
+- Claude Code CLI
+- Your `settings.json` and `mcp.json`
+- Node.js, Git, Python, and all prerequisites
+
+### Option 2: Full Uninstall (Everything)
+
+> **⚠️ WARNING: This removes EVERYTHING and cannot be undone.**
+
+Removes Claude Code, all configuration, and Rising Tides content. You'll need to reinstall from scratch.
+
+**Use this when:** You want a complete reset or are done using Claude Code entirely.
+
+**Mac/Linux:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall-full.sh -o /tmp/uninstall-full.sh && bash /tmp/uninstall-full.sh
+```
+
+**Windows (PowerShell as Administrator):**
+```powershell
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall-full.ps1' -OutFile "$env:TEMP\uninstall-full.ps1"; & "$env:TEMP\uninstall-full.ps1"
+```
+
+**What gets removed:**
+- Claude Code CLI
+- Entire `~/.claude/` directory (all config, skills, plugins)
+- `ENABLE_TOOL_SEARCH` from shell profile
+
+**What stays (you may need these for other projects):**
+- Node.js
+- Git
+- Python
+- Homebrew (Mac)
+
+### Interactive Uninstall Menu
+
+If you want a guided experience, run the menu script:
+
+**Mac/Linux:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall.sh -o /tmp/uninstall.sh && bash /tmp/uninstall.sh
+```
+
+**Windows:**
+```powershell
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall.ps1' -OutFile "$env:TEMP\uninstall.ps1"; & "$env:TEMP\uninstall.ps1"
+```
+
+This presents a menu letting you choose between Skills Pack only or Full uninstall.
+
+---
+
 ## Optional: Anthropic Enterprise Plugins
 
 Rising Tides is **developer-focused**. For non-dev enterprise workflows, Anthropic offers HTTP-based MCP plugins that connect to services like Slack, Notion, and Salesforce:

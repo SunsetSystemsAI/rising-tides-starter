@@ -215,6 +215,78 @@ After setup, verify with the user:
 - [ ] `echo $ENABLE_TOOL_SEARCH` returns "true"
 - [ ] `claude mcp list` shows memory (if configured)
 
+## Uninstall Options
+
+There are TWO uninstall options. Make sure users understand the difference:
+
+### Option 1: Skills Pack Only (Safe)
+
+Removes Rising Tides content but keeps Claude Code and prerequisites.
+
+**Use case:** User pulled skills globally, ran `/recommend skills`, imported what they need to their project, and now wants to clean up global.
+
+**What's removed:**
+- `~/.claude/skills/` (187 skills)
+- `~/.claude/plugins/` (38 plugins)
+- `SKILLS_INDEX.json`, `MCP_REGISTRY.md`, `ATTRIBUTION.md`, `SECURITY.md`
+
+**What stays:**
+- Claude Code CLI
+- `settings.json` and `mcp.json` (user preferences)
+- Node.js, Git, Python, all prerequisites
+
+**Commands:**
+
+Mac/Linux:
+```bash
+curl -fsSL https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall-skills.sh -o /tmp/uninstall-skills.sh && bash /tmp/uninstall-skills.sh
+```
+
+Windows:
+```powershell
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall-skills.ps1' -OutFile "$env:TEMP\uninstall-skills.ps1"; & "$env:TEMP\uninstall-skills.ps1"
+```
+
+### Option 2: Full Uninstall (Destructive)
+
+**WARN users clearly:** This removes EVERYTHING and cannot be undone.
+
+**Use case:** Complete reset or user is done with Claude Code entirely.
+
+**What's removed:**
+- Claude Code CLI
+- Entire `~/.claude/` directory (ALL config, skills, plugins)
+- `ENABLE_TOOL_SEARCH` from shell profile
+
+**What stays (user may need for other projects):**
+- Node.js, Git, Python, Homebrew
+
+**Commands:**
+
+Mac/Linux:
+```bash
+curl -fsSL https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall-full.sh -o /tmp/uninstall-full.sh && bash /tmp/uninstall-full.sh
+```
+
+Windows (as Administrator):
+```powershell
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall-full.ps1' -OutFile "$env:TEMP\uninstall-full.ps1"; & "$env:TEMP\uninstall-full.ps1"
+```
+
+### Interactive Menu
+
+For guided experience:
+
+Mac/Linux:
+```bash
+curl -fsSL https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall.sh -o /tmp/uninstall.sh && bash /tmp/uninstall.sh
+```
+
+Windows:
+```powershell
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/SunsetSystemsAI/rising-tides-starter/main/scripts/uninstall.ps1' -OutFile "$env:TEMP\uninstall.ps1"; & "$env:TEMP\uninstall.ps1"
+```
+
 ## Response Style
 
 - Be concise and direct
